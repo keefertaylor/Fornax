@@ -38,7 +38,7 @@
 		778602FE218D1BD30036843F = {
 			isa = PBXGroup;
 			children = (
-				77860309218D1BD30036843F /* Fornax */,
+				77860309218D1BD30036843F /* Sources */,
 				77860308218D1BD30036843F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,7 +51,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		77860309218D1BD30036843F /* Fornax */ = {
+		77860309218D1BD30036843F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				7786030A218D1BD30036843F /* AppDelegate.swift */,
@@ -61,7 +61,7 @@
 				77860313218D1BD40036843F /* LaunchScreen.storyboard */,
 				77860316218D1BD40036843F /* Info.plist */,
 			);
-			path = Fornax;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
