@@ -19,10 +19,15 @@ public class WelcomeView: UIView {
 
     super.init(frame: CGRect.zero)
 
+    self.backgroundColor = UIColor.white
+
     restoreWalletButton.setTitle("Restore Wallet", for: .normal)
     restoreWalletButton.addTarget(self,
                                   action: #selector(restoreWalletButtonTapped),
                                   for: .touchUpInside)
+    restoreWalletButton.setTitleColor(UIColor.black, for: .normal)
+    restoreWalletButton.backgroundColor = UIColor.gray
+    restoreWalletButton.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(restoreWalletButton)
 
     self.applyConstraints()
@@ -42,9 +47,9 @@ public class WelcomeView: UIView {
 
     self.restoreWalletButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,
                                                       constant: margin).isActive = true
-    self.restoreWalletButton.trailingAnchor.constraint(equalTo: self.leadingAnchor,
+    self.restoreWalletButton.trailingAnchor.constraint(equalTo: self.trailingAnchor,
                                                        constant: -margin).isActive = true
-    self.restoreWalletButton.widthAnchor.constraint(equalToConstant: buttonHeight).isActive = true
+    self.restoreWalletButton.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
     self.restoreWalletButton.bottomAnchor.constraint(equalTo: self.bottomAnchor,
                                                      constant: -margin).isActive = true
   }
