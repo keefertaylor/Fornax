@@ -12,6 +12,7 @@
 		77860310218D1BD30036843F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7786030E218D1BD30036843F /* Main.storyboard */; };
 		77860312218D1BD40036843F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77860311218D1BD40036843F /* Assets.xcassets */; };
 		77860315218D1BD40036843F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77860313218D1BD40036843F /* LaunchScreen.storyboard */; };
+		EA952341C193A890360094B1 /* libPods-Fornax.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA218A82DB99CA7EF7C552 /* libPods-Fornax.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		77860311218D1BD40036843F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77860314218D1BD40036843F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77860316218D1BD40036843F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D3C71660855556329A7BF9B /* Pods-Fornax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fornax.debug.xcconfig"; path = "Target Support Files/Pods-Fornax/Pods-Fornax.debug.xcconfig"; sourceTree = "<group>"; };
+		A7AA218A82DB99CA7EF7C552 /* libPods-Fornax.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fornax.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD842490512F153F68EEA1DF /* Pods-Fornax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fornax.release.xcconfig"; path = "Target Support Files/Pods-Fornax/Pods-Fornax.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA952341C193A890360094B1 /* libPods-Fornax.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		434BD5EC70D22CD451B4AE90 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D3C71660855556329A7BF9B /* Pods-Fornax.debug.xcconfig */,
+				AD842490512F153F68EEA1DF /* Pods-Fornax.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		778602FE218D1BD30036843F = {
 			isa = PBXGroup;
 			children = (
 				77860309218D1BD30036843F /* Sources */,
 				77860308218D1BD30036843F /* Products */,
+				434BD5EC70D22CD451B4AE90 /* Pods */,
+				C5CF3B24F3FB0CA3FCC41A9C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +81,14 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		C5CF3B24F3FB0CA3FCC41A9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7AA218A82DB99CA7EF7C552 /* libPods-Fornax.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,6 +96,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77860319218D1BD40036843F /* Build configuration list for PBXNativeTarget "Fornax" */;
 			buildPhases = (
+				ECEF1CA19657E983DA127AFB /* [CP] Check Pods Manifest.lock */,
 				77860303218D1BD30036843F /* Sources */,
 				77860304218D1BD30036843F /* Frameworks */,
 				77860305218D1BD30036843F /* Resources */,
@@ -129,6 +155,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ECEF1CA19657E983DA127AFB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Fornax-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		77860303218D1BD30036843F /* Sources */ = {
@@ -280,6 +331,7 @@
 		};
 		7786031A218D1BD40036843F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D3C71660855556329A7BF9B /* Pods-Fornax.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +350,7 @@
 		};
 		7786031B218D1BD40036843F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD842490512F153F68EEA1DF /* Pods-Fornax.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

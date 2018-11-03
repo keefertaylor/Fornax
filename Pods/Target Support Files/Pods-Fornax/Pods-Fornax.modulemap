@@ -1,0 +1,6 @@
+module Pods_Fornax {
+  umbrella header "Pods-Fornax-umbrella.h"
+
+  export *
+  module * { export * }
+}
