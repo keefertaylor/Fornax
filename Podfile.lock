@@ -12,7 +12,7 @@ PODS:
     - Sodium (~> 0.7.0)
 
 DEPENDENCIES:
-  - TezosKit (~> 0.0)
+  - TezosKit (~> 0.0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -31,6 +31,6 @@ SPEC CHECKSUMS:
   Sodium: c5510cc6f5e1b27858e5f260b5cac80d4a3f9379
   TezosKit: 0cbc35d2860c896527db722160c4a91dc68967e9
 
-PODFILE CHECKSUM: ead827580f05de9865fd05187ddd18ba3f9d001a
+PODFILE CHECKSUM: 4908195d018c3ed47cb335f46c4b38337f96fecc
 
 COCOAPODS: 1.6.0.beta.2
