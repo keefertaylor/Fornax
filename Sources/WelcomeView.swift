@@ -3,11 +3,13 @@ import UIKit
 
 public protocol WelcomeViewDelegate: class {
   func welcomeViewDidPressRestoreWallet(_ welcomeView: WelcomeView)
+  func welcomeViewDidPressNewWallet(_ welcomeView: WelcomeView)
 }
 
 public class WelcomeView: UIView {
   public weak var delegate: WelcomeViewDelegate?
-  private let restoreWalletButton: UIButton
+  private let restoreWalletButton: Button
+  private let newWalletButton: Button
 
   override open class var requiresConstraintBasedLayout: Bool {
     return true
@@ -16,6 +18,9 @@ public class WelcomeView: UIView {
   public init() {
     let restoreWalletButton = Button(frame: CGRect.zero)
     self.restoreWalletButton = restoreWalletButton
+
+    let newWalletButton = Button(frame: CGRect.zero)
+    self.newWalletButton = newWalletButton
 
     super.init(frame: CGRect.zero)
 
@@ -26,6 +31,11 @@ public class WelcomeView: UIView {
                                   action: #selector(restoreWalletButtonTapped),
                                   for: .touchUpInside)
     self.addSubview(restoreWalletButton)
+
+    newWalletButton.setTitle("New Wallet", for: .normal)
+    newWalletButton.addTarget(self, action: #selector(newWalletButtonTapped), for: .touchUpInside)
+    self.addSubview(newWalletButton)
+
 
     self.applyConstraints()
   }
@@ -42,6 +52,14 @@ public class WelcomeView: UIView {
     let margin: CGFloat = 30
     let buttonHeight: CGFloat = 50
 
+    self.newWalletButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,
+                                                  constant: margin).isActive = true
+    self.newWalletButton.trailingAnchor.constraint(equalTo: self.trailingAnchor,
+                                                   constant: -margin).isActive = true
+    self.newWalletButton.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
+    self.newWalletButton.bottomAnchor.constraint(equalTo: self.restoreWalletButton.topAnchor,
+                                                 constant: -margin).isActive = true
+
     self.restoreWalletButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,
                                                       constant: margin).isActive = true
     self.restoreWalletButton.trailingAnchor.constraint(equalTo: self.trailingAnchor,
@@ -53,5 +71,9 @@ public class WelcomeView: UIView {
 
   @objc private func restoreWalletButtonTapped() {
     self.delegate?.welcomeViewDidPressRestoreWallet(self)
+  }
+
+  @objc private func newWalletButtonTapped() {
+    self.delegate?.welcomeViewDidPressNewWallet(self)
   }
 }

@@ -3,6 +3,8 @@ import UIKit
 
 public protocol WelcomeViewControllerDelegate: class {
   func welcomeViewControllerDidRequestRestoreWallet(_ welcomeViewController: WelcomeViewController)
+  func welcomeViewControllerDidRequestNewWallet(_ welcomeViewController: WelcomeViewController)
+
 }
 
 public class WelcomeViewController: UIViewController {
@@ -21,9 +23,12 @@ public class WelcomeViewController: UIViewController {
   }
 }
 
-
 extension WelcomeViewController: WelcomeViewDelegate {
   public func welcomeViewDidPressRestoreWallet(_ welcomeView: WelcomeView) {
     self.delegate?.welcomeViewControllerDidRequestRestoreWallet(self)
+  }
+
+  public func welcomeViewDidPressNewWallet(_ welcomeView: WelcomeView) {
+    self.delegate?.welcomeViewControllerDidRequestNewWallet(self)
   }
 }

@@ -22,7 +22,6 @@ public class RestoreWalletViewController: UIViewController {
   }
 }
 
-
 extension RestoreWalletViewController: RestoreWalletViewDelegate {
   public func restoreWalletViewDidPressClose(_ restoreWalletView: RestoreWalletView) {
     self.delegate?.restoreWalletViewControllerDidRequestClose(self)

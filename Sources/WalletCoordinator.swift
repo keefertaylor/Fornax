@@ -28,6 +28,10 @@ extension WalletCoordinator: WelcomeViewControllerDelegate {
     restoreWalletViewController.delegate = self
     self.rootViewController.present(restoreWalletViewController, animated: true)
   }
+
+  public func welcomeViewControllerDidRequestNewWallet(_ welcomeViewController: WelcomeViewController) {
+    print("TODO: Put in a wallet generation flow")
+  }
 }
 
 extension WalletCoordinator: RestoreWalletViewControllerDelegate {
