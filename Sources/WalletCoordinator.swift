@@ -10,8 +10,7 @@ public class WalletCoordinator {
   public let rootViewController: UIViewController
 
   public init() {
-    // TODO: Wire an actual view controller here.
-    self.rootViewController = UIViewController(nibName: nil, bundle: nil)
+    self.rootViewController = WelcomeViewController()
   }
 
   /**
