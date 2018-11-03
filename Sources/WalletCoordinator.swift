@@ -24,6 +24,18 @@ public class WalletCoordinator {
 
 extension WalletCoordinator: WelcomeViewControllerDelegate {
   public func welcomeViewControllerDidRequestRestoreWallet(_ welcomeViewController: WelcomeViewController) {
-    print("TODO: Launch the restore wallet flow")
+    let restoreWalletViewController = RestoreWalletViewController()
+    restoreWalletViewController.delegate = self
+    self.rootViewController.present(restoreWalletViewController, animated: true)
+  }
+}
+
+extension WalletCoordinator: RestoreWalletViewControllerDelegate {
+  public func restoreWalletViewControllerDidRequestClose(_ restoreWalletViewController: RestoreWalletViewController) {
+    restoreWalletViewController.dismiss(animated: true)
+  }
+
+  public func restoreWalletViewControllerDidRequestRestoreWallet(_ restoreWalletViewController: RestoreWalletViewController) {
+    print("TODO: Restore a wallet here")
   }
 }
