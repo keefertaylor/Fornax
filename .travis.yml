@@ -8,4 +8,5 @@ script:
 before_install:
   - brew update
   - gem install cocoapods --pre
+  - pod repo update
   - pod install
