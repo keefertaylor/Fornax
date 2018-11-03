@@ -38,7 +38,7 @@ public class RestoreWalletView: UIView {
     self.addSubview(restoreWalletButton)
 
     closeButton.setTitle("X", for: .normal)
-    closeButton.addTarget(self, action: #selector(closeTapped), for: .touchUpInside)
+    closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
     closeButton.setTitleColor(UIColor.black, for: .normal)
     closeButton.backgroundColor = UIColor.gray
     closeButton.translatesAutoresizingMaskIntoConstraints = false
