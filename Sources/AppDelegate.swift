@@ -5,10 +5,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-  var walletCoordinator: FornaxWalletController!
+  var walletCoordinator: WalletCoordinator!
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    let walletCoordinator = FornaxWalletController()
+    let walletCoordinator = WalletCoordinator()
 
     let window = UIWindow(frame: UIScreen.main.bounds)
     window.rootViewController = walletCoordinator.rootViewController

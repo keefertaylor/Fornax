@@ -4,7 +4,7 @@ import UIKit
 /**
  * A mediator class which will coordinate interactions between Fornax services and view controllers.
  */
-public class FornaxWalletController {
+public class WalletCoordinator {
 
   /** The root controller at the base of the hierarchy. */
   public let rootViewController: UIViewController
