@@ -6,12 +6,14 @@ PODS:
     - CryptoSwift (= 0.7.2)
   - SipHash (1.2.2)
   - Sodium (0.7.0)
+  - SVProgressHUD (2.2.5)
   - TezosKit (0.0.1):
     - BigInt (~> 3.1)
     - MnemonicKit
     - Sodium (~> 0.7.0)
 
 DEPENDENCIES:
+  - SVProgressHUD
   - TezosKit (~> 0.0.1)
 
 SPEC REPOS:
@@ -21,6 +23,7 @@ SPEC REPOS:
     - MnemonicKit
     - SipHash
     - Sodium
+    - SVProgressHUD
     - TezosKit
 
 SPEC CHECKSUMS:
@@ -29,8 +32,9 @@ SPEC CHECKSUMS:
   MnemonicKit: ed9bd0a6638aea4a99f70aab9a70cd44b9f1e8ab
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   Sodium: c5510cc6f5e1b27858e5f260b5cac80d4a3f9379
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TezosKit: 0cbc35d2860c896527db722160c4a91dc68967e9
 
-PODFILE CHECKSUM: 4908195d018c3ed47cb335f46c4b38337f96fecc
+PODFILE CHECKSUM: aad17b2cf5214b60e9911a870f966dead0de994a
 
 COCOAPODS: 1.6.0.beta.2

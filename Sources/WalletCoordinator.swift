@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import SVProgressHUD
 
 /**
  * A mediator class which will coordinate interactions between Fornax services and view controllers.
@@ -30,7 +31,9 @@ extension WalletCoordinator: WelcomeViewControllerDelegate {
   }
 
   public func welcomeViewControllerDidRequestNewWallet(_ welcomeViewController: WelcomeViewController) {
-    print("TODO: Put in a wallet generation flow")
+    let notYetImplementedMessage = "Not yet implemented."
+    SVProgressHUD.showError(withStatus: notYetImplementedMessage)
+    print(notYetImplementedMessage)
   }
 }
 
@@ -40,6 +43,8 @@ extension WalletCoordinator: RestoreWalletViewControllerDelegate {
   }
 
   public func restoreWalletViewControllerDidRequestRestoreWallet(_ restoreWalletViewController: RestoreWalletViewController) {
-    print("TODO: Restore a wallet here")
+    let notYetImplementedMessage = "Not yet implemented."
+    SVProgressHUD.showError(withStatus: notYetImplementedMessage)
+    print(notYetImplementedMessage)
   }
 }
