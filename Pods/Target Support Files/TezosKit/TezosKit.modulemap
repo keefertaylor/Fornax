@@ -1,4 +1,4 @@
-module TezosKit {
+framework module TezosKit {
   umbrella header "TezosKit-umbrella.h"
 
   export *

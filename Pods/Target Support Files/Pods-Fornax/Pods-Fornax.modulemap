@@ -1,4 +1,4 @@
-module Pods_Fornax {
+framework module Pods_Fornax {
   umbrella header "Pods-Fornax-umbrella.h"
 
   export *
