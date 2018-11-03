@@ -14,7 +14,7 @@ public class WelcomeView: UIView {
   }
 
   public init() {
-    let restoreWalletButton = UIButton(frame: CGRect.zero)
+    let restoreWalletButton = Button(frame: CGRect.zero)
     self.restoreWalletButton = restoreWalletButton
 
     super.init(frame: CGRect.zero)
@@ -25,9 +25,6 @@ public class WelcomeView: UIView {
     restoreWalletButton.addTarget(self,
                                   action: #selector(restoreWalletButtonTapped),
                                   for: .touchUpInside)
-    restoreWalletButton.setTitleColor(UIColor.black, for: .normal)
-    restoreWalletButton.backgroundColor = UIColor.gray
-    restoreWalletButton.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(restoreWalletButton)
 
     self.applyConstraints()

@@ -17,6 +17,7 @@
 		77860326218D2CE10036843F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77860325218D2CE10036843F /* WelcomeViewController.swift */; };
 		77860328218D31F10036843F /* RestoreWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77860327218D31F10036843F /* RestoreWalletView.swift */; };
 		7786032A218D33E30036843F /* RestoreWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77860329218D33E30036843F /* RestoreWalletViewController.swift */; };
+		7786032C218D36330036843F /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786032B218D36330036843F /* Button.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		77860325218D2CE10036843F /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		77860327218D31F10036843F /* RestoreWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreWalletView.swift; sourceTree = "<group>"; };
 		77860329218D33E30036843F /* RestoreWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreWalletViewController.swift; sourceTree = "<group>"; };
+		7786032B218D36330036843F /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		9D3C71660855556329A7BF9B /* Pods-Fornax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fornax.debug.xcconfig"; path = "Target Support Files/Pods-Fornax/Pods-Fornax.debug.xcconfig"; sourceTree = "<group>"; };
 		AD842490512F153F68EEA1DF /* Pods-Fornax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fornax.release.xcconfig"; path = "Target Support Files/Pods-Fornax/Pods-Fornax.release.xcconfig"; sourceTree = "<group>"; };
 		B4B2902074812B7282BBCA99 /* Pods_Fornax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fornax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +90,7 @@
 				77860316218D1BD40036843F /* Info.plist */,
 				77860327218D31F10036843F /* RestoreWalletView.swift */,
 				77860329218D33E30036843F /* RestoreWalletViewController.swift */,
+				7786032B218D36330036843F /* Button.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7786032C218D36330036843F /* Button.swift in Sources */,
 				7786030B218D1BD30036843F /* AppDelegate.swift in Sources */,
 				77860328218D31F10036843F /* RestoreWalletView.swift in Sources */,
 				77860326218D2CE10036843F /* WelcomeViewController.swift in Sources */,

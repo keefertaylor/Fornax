@@ -17,31 +17,24 @@ public class RestoreWalletView: UIView {
   }
 
   public init() {
-    let restoreWalletButton = UIButton(frame: CGRect.zero)
+    let restoreWalletButton = Button(frame: CGRect.zero)
     self.restoreWalletButton = restoreWalletButton
 
-    let closeButton = UIButton(frame: CGRect.zero)
+    let closeButton = Button(frame: CGRect.zero)
     self.closeButton = closeButton
 
     super.init(frame: CGRect.zero)
 
     self.backgroundColor = UIColor.white
 
-    // TODO: Refactor common button UI logic into a subclass of UIButton and use that instead.
     restoreWalletButton.setTitle("Restore Wallet", for: .normal)
     restoreWalletButton.addTarget(self,
                                   action: #selector(restoreWalletButtonTapped),
                                   for: .touchUpInside)
-    restoreWalletButton.setTitleColor(UIColor.black, for: .normal)
-    restoreWalletButton.backgroundColor = UIColor.gray
-    restoreWalletButton.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(restoreWalletButton)
 
     closeButton.setTitle("X", for: .normal)
     closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
-    closeButton.setTitleColor(UIColor.black, for: .normal)
-    closeButton.backgroundColor = UIColor.gray
-    closeButton.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(closeButton)
 
     self.applyConstraints()
