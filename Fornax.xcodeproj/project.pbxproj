@@ -8,23 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		7786030B218D1BD30036843F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786030A218D1BD30036843F /* AppDelegate.swift */; };
-		7786030D218D1BD30036843F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786030C218D1BD30036843F /* ViewController.swift */; };
 		77860310218D1BD30036843F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7786030E218D1BD30036843F /* Main.storyboard */; };
 		77860312218D1BD40036843F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77860311218D1BD40036843F /* Assets.xcassets */; };
 		77860315218D1BD40036843F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77860313218D1BD40036843F /* LaunchScreen.storyboard */; };
 		77860320218D20850036843F /* WalletCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786031F218D20850036843F /* WalletCoordinator.swift */; };
+		77860322218D26300036843F /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77860321218D26300036843F /* WelcomeView.swift */; };
 		EA952341C193A890360094B1 /* libPods-Fornax.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AA218A82DB99CA7EF7C552 /* libPods-Fornax.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		77860307218D1BD30036843F /* Fornax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fornax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7786030A218D1BD30036843F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7786030C218D1BD30036843F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7786030F218D1BD30036843F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77860311218D1BD40036843F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77860314218D1BD40036843F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77860316218D1BD40036843F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7786031F218D20850036843F /* WalletCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletCoordinator.swift; sourceTree = "<group>"; };
+		77860321218D26300036843F /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		9D3C71660855556329A7BF9B /* Pods-Fornax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fornax.debug.xcconfig"; path = "Target Support Files/Pods-Fornax/Pods-Fornax.debug.xcconfig"; sourceTree = "<group>"; };
 		A7AA218A82DB99CA7EF7C552 /* libPods-Fornax.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fornax.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD842490512F153F68EEA1DF /* Pods-Fornax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fornax.release.xcconfig"; path = "Target Support Files/Pods-Fornax/Pods-Fornax.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 			children = (
 				7786031F218D20850036843F /* WalletCoordinator.swift */,
 				7786030A218D1BD30036843F /* AppDelegate.swift */,
-				7786030C218D1BD30036843F /* ViewController.swift */,
+				77860321218D26300036843F /* WelcomeView.swift */,
 				7786030E218D1BD30036843F /* Main.storyboard */,
 				77860311218D1BD40036843F /* Assets.xcassets */,
 				77860313218D1BD40036843F /* LaunchScreen.storyboard */,
@@ -188,8 +188,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7786030D218D1BD30036843F /* ViewController.swift in Sources */,
 				7786030B218D1BD30036843F /* AppDelegate.swift in Sources */,
+				77860322218D26300036843F /* WelcomeView.swift in Sources */,
 				77860320218D20850036843F /* WalletCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
