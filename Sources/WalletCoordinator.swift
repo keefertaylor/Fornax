@@ -7,10 +7,11 @@ import UIKit
 public class WalletCoordinator {
 
   /** The root controller at the base of the hierarchy. */
-  public let rootViewController: UIViewController
+  public let rootViewController: WelcomeViewController
 
   public init() {
     self.rootViewController = WelcomeViewController()
+    self.rootViewController.delegate = self
   }
 
   /**
@@ -18,5 +19,11 @@ public class WalletCoordinator {
    */
   public func reset(animated: Bool) {
     self.rootViewController.dismiss(animated: animated)
+  }
+}
+
+extension WalletCoordinator: WelcomeViewControllerDelegate {
+  public func welcomeViewControllerDidRequestRestoreWallet(_ welcomeViewController: WelcomeViewController) {
+    print("TODO: Launch the restore wallet flow")
   }
 }
