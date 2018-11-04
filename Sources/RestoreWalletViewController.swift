@@ -2,6 +2,9 @@ import Foundation
 import UIKit
 
 public protocol RestoreWalletViewControllerDelegate: class {
+  /**
+   * @note The mnemonic in this delegate call is guaranteed to be a valid BIP39 mnemonic.
+   */
   func restoreWalletViewControllerDidRequestRestoreWallet(_ restoreWalletViewController: RestoreWalletViewController)
   func restoreWalletViewControllerDidRequestClose(_ restoreWalletViewController: RestoreWalletViewController)
 }
@@ -27,7 +30,9 @@ extension RestoreWalletViewController: RestoreWalletViewDelegate {
     self.delegate?.restoreWalletViewControllerDidRequestClose(self)
   }
 
-  public func restoreWalletViewDidPressRestoreWallet(_ restoreWalletView: RestoreWalletView) {
+  public func restoreWalletViewDidPressRestoreWallet(_ restoreWalletView: RestoreWalletView,
+                                                     mnemonic mnenominc: String,
+                                                     passphrase: String) {
     self.delegate?.restoreWalletViewControllerDidRequestRestoreWallet(self)
   }
 }

@@ -3,7 +3,9 @@ import UIKit
 
 public protocol RestoreWalletViewDelegate: class {
   func restoreWalletViewDidPressClose(_ restoreWalletView: RestoreWalletView)
-  func restoreWalletViewDidPressRestoreWallet(_ restoreWalletView: RestoreWalletView)
+  func restoreWalletViewDidPressRestoreWallet(_ restoreWalletView: RestoreWalletView,
+                                              mnemonic: String,
+                                              passphrase: String)
 }
 
 public class RestoreWalletView: UIScrollView {
@@ -105,7 +107,11 @@ public class RestoreWalletView: UIScrollView {
   }
 
   @objc private func restoreWalletButtonTapped() {
-    self.restoreWalletDelegate?.restoreWalletViewDidPressRestoreWallet(self)
+    let mnemonic = self.mnemonicField.text ?? ""
+    let passphrase = self.passphraseField.text ?? ""
+    self.restoreWalletDelegate?.restoreWalletViewDidPressRestoreWallet(self,
+                                                                       mnemonic: mnemonic,
+                                                                       passphrase: passphrase)
   }
 
   @objc private func closeButtonTapped() {
