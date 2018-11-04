@@ -1,5 +1,7 @@
 import Foundation
 import UIKit
+import MnemonicKit
+import SVProgressHUD
 
 public protocol RestoreWalletViewControllerDelegate: class {
   /**
@@ -31,8 +33,12 @@ extension RestoreWalletViewController: RestoreWalletViewDelegate {
   }
 
   public func restoreWalletViewDidPressRestoreWallet(_ restoreWalletView: RestoreWalletView,
-                                                     mnemonic mnenominc: String,
+                                                     mnemonic: String,
                                                      passphrase: String) {
+    guard Mnemonic.validate(mnemonic: mnemonic) else {
+      SVProgressHUD.showError(withStatus: "Invalid Mnemonic.\nDouble check and try again?")
+      return
+    }
     self.delegate?.restoreWalletViewControllerDidRequestRestoreWallet(self)
   }
 }
