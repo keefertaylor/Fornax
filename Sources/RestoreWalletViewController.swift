@@ -7,7 +7,9 @@ public protocol RestoreWalletViewControllerDelegate: class {
   /**
    * @note The mnemonic in this delegate call is guaranteed to be a valid BIP39 mnemonic.
    */
-  func restoreWalletViewControllerDidRequestRestoreWallet(_ restoreWalletViewController: RestoreWalletViewController)
+  func restoreWalletViewControllerDidRequestRestoreWallet(_ restoreWalletViewController: RestoreWalletViewController,
+                                                          mnemonic: String,
+                                                          passphrase: String)
   func restoreWalletViewControllerDidRequestClose(_ restoreWalletViewController: RestoreWalletViewController)
 }
 
@@ -39,6 +41,8 @@ extension RestoreWalletViewController: RestoreWalletViewDelegate {
       SVProgressHUD.showError(withStatus: "Invalid Mnemonic.\nDouble check and try again?")
       return
     }
-    self.delegate?.restoreWalletViewControllerDidRequestRestoreWallet(self)
+    self.delegate?.restoreWalletViewControllerDidRequestRestoreWallet(self,
+                                                                      mnemonic: mnemonic,
+                                                                      passphrase: passphrase)
   }
 }
