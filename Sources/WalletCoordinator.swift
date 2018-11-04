@@ -26,6 +26,7 @@ public class WalletCoordinator {
    */
   public func reset(animated: Bool) {
     self.rootViewController.dismiss(animated: animated)
+    self.activeWallet = nil
   }
 }
 
