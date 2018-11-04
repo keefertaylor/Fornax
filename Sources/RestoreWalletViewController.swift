@@ -13,7 +13,7 @@ public class RestoreWalletViewController: UIViewController {
     super.init(nibName: nil, bundle: nil)
 
     let restoreWalletView = RestoreWalletView()
-    restoreWalletView.delegate = self
+    restoreWalletView.restoreWalletDelegate = self
     self.view = restoreWalletView
   }
 
