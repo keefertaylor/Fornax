@@ -10,7 +10,11 @@ public protocol WalletViewControllerDelegate: class {
 public class WalletViewController: UIViewController {
   public weak var delegate: WalletViewControllerDelegate?
 
+  private let wallet: Wallet
+
   public init(wallet: Wallet, tezosClient: TezosClient) {
+    self.wallet = wallet
+
     super.init(nibName: nil, bundle: nil)
 
     let walletView = WalletView(address: wallet.address)
@@ -41,5 +45,10 @@ public class WalletViewController: UIViewController {
 extension WalletViewController: WalletViewDelegate {
   public func walletViewDidPressLock(_ walletView: WalletView) {
     self.delegate?.walletViewControllerDidPressLock(self)
+  }
+
+  public func walletViewDidPressCopyAddress(_ walletView: WalletView) {
+    UIPasteboard.general.string = self.wallet.address
+    SVProgressHUD.showInfo(withStatus: "Address copied to clipboard.")
   }
 }

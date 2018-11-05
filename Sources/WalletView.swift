@@ -4,6 +4,7 @@ import UIKit
 
 public protocol WalletViewDelegate: class {
   func walletViewDidPressLock(_ walletView: WalletView)
+  func walletViewDidPressCopyAddress(_ walletView: WalletView)
 }
 
 public class WalletView: UIView {
@@ -15,6 +16,7 @@ public class WalletView: UIView {
   private let currentBalanceLabel: UILabel
 
   private let lockWalletButton: UIButton
+  private let copyAddressButton: UIButton
 
   override open class var requiresConstraintBasedLayout: Bool {
     return true
@@ -32,6 +34,9 @@ public class WalletView: UIView {
 
     let lockWalletButton = Button()
     self.lockWalletButton = lockWalletButton
+
+    let copyAddressButton = Button()
+    self.copyAddressButton = copyAddressButton
 
     super.init(frame: CGRect.zero)
 
@@ -52,6 +57,10 @@ public class WalletView: UIView {
     lockWalletButton.setTitle("Securely Logout of Wallet", for: .normal)
     lockWalletButton.addTarget(self, action: #selector(lockWalletButtonTapped), for: .touchUpInside)
     self.addSubview(lockWalletButton)
+
+    copyAddressButton.setTitle("Copy Wallet Address", for: .normal)
+    copyAddressButton.addTarget(self, action: #selector(copyAddressButtonTapped), for: .touchUpInside)
+    self.addSubview(copyAddressButton)
 
     self.applyConstraints()
   }
@@ -103,9 +112,21 @@ public class WalletView: UIView {
                                                    constant: margin).isActive = true
     self.lockWalletButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
                                                     constant: -margin).isActive = true
+
+    self.copyAddressButton.topAnchor.constraint(equalTo: self.lockWalletButton.bottomAnchor,
+                                                constant: margin).isActive = true
+    self.copyAddressButton.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
+    self.copyAddressButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                                                    constant: margin).isActive = true
+    self.copyAddressButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                                                     constant: -margin).isActive = true
   }
 
   @objc private func lockWalletButtonTapped() {
     self.delegate?.walletViewDidPressLock(self)
+  }
+
+  @objc private func copyAddressButtonTapped() {
+    self.delegate?.walletViewDidPressCopyAddress(self)
   }
 }
