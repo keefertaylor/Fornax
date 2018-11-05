@@ -12,6 +12,7 @@
 		772E4E64218FC245002A44A3 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E63218FC245002A44A3 /* WalletViewController.swift */; };
 		772E4E66218FCF2A002A44A3 /* NewWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E65218FCF2A002A44A3 /* NewWalletView.swift */; };
 		772E4E68218FD6B4002A44A3 /* NewWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E67218FD6B4002A44A3 /* NewWalletViewController.swift */; };
+		772E4E6A2190CFC5002A44A3 /* ConfirmWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E692190CFC5002A44A3 /* ConfirmWalletViewController.swift */; };
 		7786030B218D1BD30036843F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786030A218D1BD30036843F /* AppDelegate.swift */; };
 		77860310218D1BD30036843F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7786030E218D1BD30036843F /* Main.storyboard */; };
 		77860312218D1BD40036843F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77860311218D1BD40036843F /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		772E4E63218FC245002A44A3 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		772E4E65218FCF2A002A44A3 /* NewWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalletView.swift; sourceTree = "<group>"; };
 		772E4E67218FD6B4002A44A3 /* NewWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalletViewController.swift; sourceTree = "<group>"; };
+		772E4E692190CFC5002A44A3 /* ConfirmWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmWalletViewController.swift; sourceTree = "<group>"; };
 		77860307218D1BD30036843F /* Fornax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fornax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7786030A218D1BD30036843F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7786030F218D1BD30036843F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				7786032B218D36330036843F /* Button.swift */,
 				772E4E63218FC245002A44A3 /* WalletViewController.swift */,
 				772E4E61218FBEE6002A44A3 /* WalletView.swift */,
+				772E4E692190CFC5002A44A3 /* ConfirmWalletViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				772E4E68218FD6B4002A44A3 /* NewWalletViewController.swift in Sources */,
 				77860326218D2CE10036843F /* WelcomeViewController.swift in Sources */,
 				772E4E66218FCF2A002A44A3 /* NewWalletView.swift in Sources */,
+				772E4E6A2190CFC5002A44A3 /* ConfirmWalletViewController.swift in Sources */,
 				77860322218D26300036843F /* WelcomeView.swift in Sources */,
 				772E4E64218FC245002A44A3 /* WalletViewController.swift in Sources */,
 				7786032A218D33E30036843F /* RestoreWalletViewController.swift in Sources */,
