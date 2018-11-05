@@ -5,10 +5,13 @@ import UIKit
 public protocol WalletViewDelegate: class {
   func walletViewDidPressLock(_ walletView: WalletView)
   func walletViewDidPressCopyAddress(_ walletView: WalletView)
+  func walletViewDidPressRefreshBalance(_ walletView: WalletView)
 }
 
 public class WalletView: UIView {
   public weak var delegate: WalletViewDelegate?
+
+  public let currentBalanceLabelPlaceholder = "---"
 
   private let walletAddress: UILabel
 
@@ -17,6 +20,7 @@ public class WalletView: UIView {
 
   private let lockWalletButton: UIButton
   private let copyAddressButton: UIButton
+  private let refreshBalanceButton: UIButton
 
   override open class var requiresConstraintBasedLayout: Bool {
     return true
@@ -38,6 +42,9 @@ public class WalletView: UIView {
     let copyAddressButton = Button()
     self.copyAddressButton = copyAddressButton
 
+    let refreshBalanceButton = Button()
+    self.refreshBalanceButton = refreshBalanceButton
+
     super.init(frame: CGRect.zero)
 
     self.backgroundColor = UIColor.blue
@@ -50,7 +57,7 @@ public class WalletView: UIView {
     balanceLabel.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(balanceLabel)
 
-    currentBalanceLabel.text = "---"
+    currentBalanceLabel.text = self.currentBalanceLabelPlaceholder
     currentBalanceLabel.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(currentBalanceLabel)
 
@@ -59,8 +66,14 @@ public class WalletView: UIView {
     self.addSubview(lockWalletButton)
 
     copyAddressButton.setTitle("Copy Wallet Address", for: .normal)
-    copyAddressButton.addTarget(self, action: #selector(copyAddressButtonTapped), for: .touchUpInside)
+    copyAddressButton.addTarget(self, action: #selector(copyAddressButtonTapped),
+                                for: .touchUpInside)
     self.addSubview(copyAddressButton)
+
+    refreshBalanceButton.setTitle("Refresh Balance", for: .normal)
+    refreshBalanceButton.addTarget(self, action: #selector(refreshBalanceButtonTapped),
+                                   for: .touchUpInside)
+    self.addSubview(refreshBalanceButton)
 
     self.applyConstraints()
   }
@@ -120,6 +133,14 @@ public class WalletView: UIView {
                                                     constant: margin).isActive = true
     self.copyAddressButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
                                                      constant: -margin).isActive = true
+
+    self.refreshBalanceButton.topAnchor.constraint(equalTo: self.copyAddressButton.bottomAnchor,
+                                                   constant: margin).isActive = true
+    self.refreshBalanceButton.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
+    self.refreshBalanceButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                                                       constant: margin).isActive = true
+    self.refreshBalanceButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                                                        constant: -margin).isActive = true
   }
 
   @objc private func lockWalletButtonTapped() {
@@ -128,5 +149,10 @@ public class WalletView: UIView {
 
   @objc private func copyAddressButtonTapped() {
     self.delegate?.walletViewDidPressCopyAddress(self)
+  }
+
+  @objc private func refreshBalanceButtonTapped() {
+    currentBalanceLabel.text = self.currentBalanceLabelPlaceholder
+    self.delegate?.walletViewDidPressRefreshBalance(self)
   }
 }

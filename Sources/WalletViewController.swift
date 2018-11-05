@@ -11,17 +11,33 @@ public class WalletViewController: UIViewController {
   public weak var delegate: WalletViewControllerDelegate?
 
   private let wallet: Wallet
+  private let tezosClient: TezosClient
+
+  private let walletView: WalletView
 
   public init(wallet: Wallet, tezosClient: TezosClient) {
     self.wallet = wallet
+    self.tezosClient = tezosClient
+
+    let walletView = WalletView(address: wallet.address)
+    self.walletView = walletView
 
     super.init(nibName: nil, bundle: nil)
 
-    let walletView = WalletView(address: wallet.address)
     walletView.delegate = self
+    self.view = walletView
 
-    // TODO: How do retain cycles work in swift again?
-    tezosClient.getBalance(address: wallet.address) { (balance, error) in
+    self.updateBalance()
+  }
+
+  @available(*, unavailable)
+  public required convenience init?(coder aDecoder: NSCoder) {
+    fatalError()
+  }
+
+  private func updateBalance() {
+    // TODO: Check retain cycles.
+    self.tezosClient.getBalance(wallet: self.wallet) { balance, error in
       guard let balance = balance,
         error == nil else {
           SVProgressHUD.showError(withStatus: "Error fetching balance")
@@ -29,16 +45,9 @@ public class WalletViewController: UIViewController {
       }
 
       DispatchQueue.main.async {
-        walletView.updateBalance(balance: balance)
+        self.walletView.updateBalance(balance: balance)
       }
     }
-
-    self.view = walletView
-  }
-
-  @available(*, unavailable)
-  public required convenience init?(coder aDecoder: NSCoder) {
-    fatalError()
   }
 }
 
@@ -50,5 +59,9 @@ extension WalletViewController: WalletViewDelegate {
   public func walletViewDidPressCopyAddress(_ walletView: WalletView) {
     UIPasteboard.general.string = self.wallet.address
     SVProgressHUD.showInfo(withStatus: "Address copied to clipboard.")
+  }
+
+  public func walletViewDidPressRefreshBalance(_ walletView: WalletView) {
+    self.updateBalance()
   }
 }
