@@ -33,6 +33,13 @@ public class WalletCoordinator {
     self.rootViewController.dismiss(animated: animated)
     self.activeWallet = nil
   }
+
+  private func pushWalletController(navigationController: UINavigationController, wallet: Wallet) {
+    let walletViewController = WalletViewController(wallet: wallet,
+                                                    tezosClient: self.tezosClient)
+    walletViewController.delegate = self
+    navigationController.pushViewController(walletViewController, animated: true)
+  }
 }
 
 extension WalletCoordinator: WelcomeViewControllerDelegate {
@@ -79,11 +86,7 @@ extension WalletCoordinator: RestoreWalletViewControllerDelegate {
         }
         SVProgressHUD.dismiss()
 
-        let walletViewController = WalletViewController(wallet: activeWallet,
-                                                        tezosClient: self.tezosClient)
-        walletViewController.delegate = self
-
-        navController.pushViewController(walletViewController, animated: true)
+        self.pushWalletController(navigationController: navController, wallet: activeWallet)
       }
     }
   }
@@ -134,6 +137,10 @@ extension WalletCoordinator: ConfirmWalletViewControllerDelegate {
 
   public func confirmWalletViewControllerDidConfirmWallet(_ confirmWalletViewController: ConfirmWalletViewController,
                                                           wallet: Wallet) {
-    // TODO: wire up a new wallet view.
+    guard let navigationController = confirmWalletViewController.navigationController else {
+      SVProgressHUD.showError(withStatus: "Something went wrong.")
+      return
+    }
+    self.pushWalletController(navigationController: navigationController, wallet: wallet)
   }
 }

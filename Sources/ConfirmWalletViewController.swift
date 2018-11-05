@@ -39,6 +39,7 @@ extension ConfirmWalletViewController: InputWalletViewDelegate {
                                                  mnemonic: String,
                                                  passphrase: String) {
     // Confirm the wallet is actually matching before making delegate callback.
+    // TODO: Weakself
     SVProgressHUD.show()
     DispatchQueue.global(qos: .userInitiated).async {
       guard let wallet = Wallet(mnemonic: mnemonic, passphrase: passphrase) else {
@@ -52,7 +53,10 @@ extension ConfirmWalletViewController: InputWalletViewDelegate {
       }
 
       SVProgressHUD.dismiss()
-      self.delegate?.confirmWalletViewControllerDidConfirmWallet(self, wallet: self.wallet)
+
+      DispatchQueue.main.async {
+        self.delegate?.confirmWalletViewControllerDidConfirmWallet(self, wallet: self.wallet)
+      }
     }
   }
 }
