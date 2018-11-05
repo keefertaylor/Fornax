@@ -7,7 +7,7 @@ PODS:
   - SipHash (1.2.2)
   - Sodium (0.7.0)
   - SVProgressHUD (2.2.5)
-  - TezosKit (0.0.1):
+  - TezosKit (0.0.2):
     - BigInt (~> 3.1)
     - MnemonicKit
     - Sodium (~> 0.7.0)
@@ -34,7 +34,7 @@ SPEC CHECKSUMS:
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   Sodium: c5510cc6f5e1b27858e5f260b5cac80d4a3f9379
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  TezosKit: 0cbc35d2860c896527db722160c4a91dc68967e9
+  TezosKit: ac8abea1416152e0e90b52aacdc9c5b85e12aaf1
 
 PODFILE CHECKSUM: 022f69d4ae85af5dd52e2f0421cebf84dd0c4d98
 
