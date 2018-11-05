@@ -3,8 +3,8 @@ import UIKit
 import MnemonicKit
 
 public protocol NewWalletViewDelegate: class {
-  func walletViewDidPressSubmit(_ newWalletView: NewWalletView)
-  func walletViewDidPressClose(_ newWalletView: NewWalletView)
+  func newWalletViewDidPressSubmit(_ newWalletView: NewWalletView)
+  func newWalletViewDidPressClose(_ newWalletView: NewWalletView)
 }
 
 public class NewWalletView: UIView {
@@ -99,10 +99,10 @@ public class NewWalletView: UIView {
   }
 
   @objc private func closeButtonTapped() {
-    self.delegate?.walletViewDidPressClose(self)
+    self.delegate?.newWalletViewDidPressClose(self)
   }
 
   @objc private func submitButtonTapped() {
-    self.delegate?.walletViewDidPressSubmit(self)
+    self.delegate?.newWalletViewDidPressSubmit(self)
   }
 }
