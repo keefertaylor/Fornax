@@ -14,11 +14,16 @@ public class WalletCoordinator {
   /** The wallet that is being interacted with. */
   public var activeWallet: Wallet?
 
+  /** The Tezos gateway client. */
+  public let tezosClient: TezosClient
+
   public init() {
+    self.activeWallet = nil
+
+    self.tezosClient = TezosClient()
+
     self.rootViewController = WelcomeViewController()
     self.rootViewController.delegate = self
-
-    self.activeWallet = nil
   }
 
   /**
@@ -68,7 +73,8 @@ extension WalletCoordinator: RestoreWalletViewControllerDelegate {
         }
         SVProgressHUD.dismiss()
 
-        let walletViewController = WalletViewController(wallet: activeWallet)
+        let walletViewController = WalletViewController(wallet: activeWallet,
+                                                        tezosClient: self.tezosClient)
         walletViewController.delegate = self
 
         navController.pushViewController(walletViewController, animated: true)
