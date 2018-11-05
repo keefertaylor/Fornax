@@ -15,6 +15,7 @@ public class NewWalletViewController: UIViewController {
 
   public init(mnemonic: String) {
     self.mnemonic = mnemonic
+    print("FYI: Mnemonic is: \(mnemonic)")
 
     super.init(nibName: nil, bundle: nil)
 
