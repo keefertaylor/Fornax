@@ -101,7 +101,9 @@ extension WalletCoordinator: NewWalletViewControllerDelegate {
     newWalletViewController.dismiss(animated: true)
   }
 
-  public func newWalletViewControllerDidRequestNewWallet(_ newWalletViewController: NewWalletViewController) {
-    // TODO: Implement.
+  public func newWalletViewControllerDidRequestNewWallet(_ newWalletViewController: NewWalletViewController,
+                                                         mnemonic: String,
+                                                         passphrase: String) {
+    // TODO: Wiring.
   }
 }

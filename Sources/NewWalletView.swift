@@ -3,7 +3,8 @@ import UIKit
 import MnemonicKit
 
 public protocol NewWalletViewDelegate: class {
-  func newWalletViewDidPressSubmit(_ newWalletView: NewWalletView)
+  func newWalletViewDidPressSubmit(_ newWalletView: NewWalletView,
+                                   passphrase: String)
   func newWalletViewDidPressClose(_ newWalletView: NewWalletView)
 }
 
@@ -103,6 +104,7 @@ public class NewWalletView: UIView {
   }
 
   @objc private func submitButtonTapped() {
-    self.delegate?.newWalletViewDidPressSubmit(self)
+    let passphrase = self.passphraseField.text ?? ""
+    self.delegate?.newWalletViewDidPressSubmit(self, passphrase: passphrase)
   }
 }
