@@ -104,6 +104,36 @@ extension WalletCoordinator: NewWalletViewControllerDelegate {
   public func newWalletViewControllerDidRequestNewWallet(_ newWalletViewController: NewWalletViewController,
                                                          mnemonic: String,
                                                          passphrase: String) {
-    // TODO: Wiring.
+    // TODO: consider de-duping with logic to restore a wallet.
+    // Generating a wallet is a cryptographic process and can take time so show a spinner.
+    SVProgressHUD.show()
+    // TODO: Use weakself to prevent retain cycles.
+    DispatchQueue.global(qos: .userInitiated).async {
+      let wallet = Wallet(mnemonic: mnemonic, passphrase: passphrase)
+      DispatchQueue.main.async {
+        guard let wallet = wallet,
+          let navController = newWalletViewController.navigationController else {
+            SVProgressHUD.showError(withStatus: "Something went wrong.")
+            return
+        }
+        SVProgressHUD.dismiss()
+
+        let confirmWalletViewController = ConfirmWalletViewController(wallet: wallet)
+        confirmWalletViewController.delegate = self
+
+        navController.pushViewController(confirmWalletViewController, animated: true)
+      }
+    }
+  }
+}
+
+extension WalletCoordinator: ConfirmWalletViewControllerDelegate {
+  public func confirmWalletViewControllerDidRequestDismiss(_ confirmWalletViewController: ConfirmWalletViewController) {
+    confirmWalletViewController.dismiss(animated: true)
+  }
+
+  public func confirmWalletViewControllerDidConfirmWallet(_ confirmWalletViewController: ConfirmWalletViewController,
+                                                          wallet: Wallet) {
+    // TODO: wire up a new wallet view.
   }
 }
