@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		164D1ACD00F7A29AD40F4C65 /* Pods_Fornax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B2902074812B7282BBCA99 /* Pods_Fornax.framework */; };
+		772E4E62218FBEE6002A44A3 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E61218FBEE6002A44A3 /* WalletView.swift */; };
 		7786030B218D1BD30036843F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786030A218D1BD30036843F /* AppDelegate.swift */; };
 		77860310218D1BD30036843F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7786030E218D1BD30036843F /* Main.storyboard */; };
 		77860312218D1BD40036843F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77860311218D1BD40036843F /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		772E4E61218FBEE6002A44A3 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		77860307218D1BD30036843F /* Fornax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fornax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7786030A218D1BD30036843F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7786030F218D1BD30036843F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				77860327218D31F10036843F /* RestoreWalletView.swift */,
 				77860329218D33E30036843F /* RestoreWalletViewController.swift */,
 				7786032B218D36330036843F /* Button.swift */,
+				772E4E61218FBEE6002A44A3 /* WalletView.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				77860322218D26300036843F /* WelcomeView.swift in Sources */,
 				7786032A218D33E30036843F /* RestoreWalletViewController.swift in Sources */,
 				77860320218D20850036843F /* WalletCoordinator.swift in Sources */,
+				772E4E62218FBEE6002A44A3 /* WalletView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
