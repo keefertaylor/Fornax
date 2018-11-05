@@ -46,9 +46,15 @@ extension WalletCoordinator: WelcomeViewControllerDelegate {
   }
 
   public func welcomeViewControllerDidRequestNewWallet(_ welcomeViewController: WelcomeViewController) {
-    let notYetImplementedMessage = "Not yet implemented."
-    SVProgressHUD.showError(withStatus: notYetImplementedMessage)
-    print(notYetImplementedMessage)
+    guard let mnemonic = MnemonicUtil.generateMnemonic() else {
+      SVProgressHUD.showError(withStatus: "Unknown Error\nPlease try again?")
+      return
+    }
+    let newWalletViewController = NewWalletViewController(mnemonic: mnemonic)
+    newWalletViewController.delegate = self
+
+    let navController = UINavigationController(rootViewController: newWalletViewController)
+    self.rootViewController.present(navController, animated: true)
   }
 }
 
@@ -87,5 +93,15 @@ extension WalletCoordinator: WalletViewControllerDelegate {
   public func walletViewControllerDidPressLock(_ walletViewController: WalletViewController) {
     self.activeWallet = nil;
     walletViewController.dismiss(animated: true)
+  }
+}
+
+extension WalletCoordinator: NewWalletViewControllerDelegate {
+  public func newWalletViewControllerDidRequestClose(_ newWalletViewController: NewWalletViewController) {
+    newWalletViewController.dismiss(animated: true)
+  }
+
+  public func newWalletViewControllerDidRequestNewWallet(_ newWalletViewController: NewWalletViewController) {
+    // TODO: Implement.
   }
 }

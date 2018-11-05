@@ -37,6 +37,7 @@ extension RestoreWalletViewController: RestoreWalletViewDelegate {
   public func restoreWalletViewDidPressRestoreWallet(_ restoreWalletView: RestoreWalletView,
                                                      mnemonic: String,
                                                      passphrase: String) {
+    // TODO: Consider if this functionality should just be exposed in TezosKit on MnemonicUtil.
     guard Mnemonic.validate(mnemonic: mnemonic) else {
       SVProgressHUD.showError(withStatus: "Invalid Mnemonic.\nDouble check and try again?")
       return

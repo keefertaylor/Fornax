@@ -1,5 +1,4 @@
 import Foundation
-import MnemonicKit
 import UIKit
 
 public protocol NewWalletViewControllerDelegate: class {
