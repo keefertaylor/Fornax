@@ -1,7 +1,13 @@
 import Foundation
 import UIKit
 
+public protocol WalletViewDelegate: class {
+  func walletViewDidPressLock(_ walletView: WalletView)
+}
+
 public class WalletView: UIView {
+  public weak var delegate: WalletViewDelegate?
+
   private let walletAddress: UILabel
   private let lockWalletButton: UIButton
 
@@ -63,6 +69,6 @@ public class WalletView: UIView {
   }
 
   @objc private func lockWalletButtonTapped() {
-    // TODO: Wire up a delegate.
+    self.delegate?.walletViewDidPressLock(self)
   }
 }

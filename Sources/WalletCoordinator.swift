@@ -67,9 +67,19 @@ extension WalletCoordinator: RestoreWalletViewControllerDelegate {
                 return
         }
         SVProgressHUD.dismiss()
+
         let walletViewController = WalletViewController(wallet: activeWallet)
+        walletViewController.delegate = self
+
         navController.pushViewController(walletViewController, animated: true)
       }
     }
+  }
+}
+
+extension WalletCoordinator: WalletViewControllerDelegate {
+  public func walletViewControllerDidPressLock(_ walletViewController: WalletViewController) {
+    self.activeWallet = nil;
+    walletViewController.dismiss(animated: true)
   }
 }

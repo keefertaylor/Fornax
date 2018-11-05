@@ -84,7 +84,6 @@
 		77860309218D1BD30036843F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				772E4E63218FC245002A44A3 /* WalletViewController.swift */,
 				77860325218D2CE10036843F /* WelcomeViewController.swift */,
 				7786031F218D20850036843F /* WalletCoordinator.swift */,
 				7786030A218D1BD30036843F /* AppDelegate.swift */,
@@ -96,6 +95,7 @@
 				77860327218D31F10036843F /* RestoreWalletView.swift */,
 				77860329218D33E30036843F /* RestoreWalletViewController.swift */,
 				7786032B218D36330036843F /* Button.swift */,
+				772E4E63218FC245002A44A3 /* WalletViewController.swift */,
 				772E4E61218FBEE6002A44A3 /* WalletView.swift */,
 			);
 			path = Sources;
