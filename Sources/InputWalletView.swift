@@ -1,18 +1,18 @@
 import Foundation
 import UIKit
 
-public protocol RestoreWalletViewDelegate: class {
-  func restoreWalletViewDidPressClose(_ restoreWalletView: RestoreWalletView)
-  func restoreWalletViewDidPressRestoreWallet(_ restoreWalletView: RestoreWalletView,
+public protocol InputWalletViewDelegate: class {
+  func inputWalletViewDidPressClose(_ inputWalletView: InputWalletView)
+  func inputWalletViewDidPressInputWallet(_ inputWalletView: InputWalletView,
                                               mnemonic: String,
                                               passphrase: String)
 }
 
-public class RestoreWalletView: UIScrollView {
-  public weak var restoreWalletDelegate: RestoreWalletViewDelegate?
+public class InputWalletView: UIScrollView {
+  public weak var inputWalletDelegate: InputWalletViewDelegate?
 
   private let closeButton: UIButton
-  private let restoreWalletButton: UIButton
+  private let inputWalletButton: UIButton
 
   private let mnemonicField: UITextField
   private let passphraseField: UITextField
@@ -22,8 +22,8 @@ public class RestoreWalletView: UIScrollView {
   }
 
   public init() {
-    let restoreWalletButton = Button(frame: CGRect.zero)
-    self.restoreWalletButton = restoreWalletButton
+    let inputWalletButton = Button(frame: CGRect.zero)
+    self.inputWalletButton = inputWalletButton
 
     let closeButton = Button(frame: CGRect.zero)
     self.closeButton = closeButton
@@ -46,11 +46,11 @@ public class RestoreWalletView: UIScrollView {
     passphraseField.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(passphraseField)
 
-    restoreWalletButton.setTitle("Restore Wallet", for: .normal)
-    restoreWalletButton.addTarget(self,
-                                  action: #selector(restoreWalletButtonTapped),
+    inputWalletButton.setTitle("Input Wallet", for: .normal)
+    inputWalletButton.addTarget(self,
+                                  action: #selector(inputWalletButtonTapped),
                                   for: .touchUpInside)
-    self.addSubview(restoreWalletButton)
+    self.addSubview(inputWalletButton)
 
     closeButton.setTitle("X", for: .normal)
     closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
@@ -97,24 +97,24 @@ public class RestoreWalletView: UIScrollView {
     self.passphraseField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
                                                  constant: -margin).isActive = true
 
-    self.restoreWalletButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+    self.inputWalletButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                       constant: margin).isActive = true
-    self.restoreWalletButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+    self.inputWalletButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
                                                        constant: -margin).isActive = true
-    self.restoreWalletButton.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
-    self.restoreWalletButton.topAnchor.constraint(equalTo: self.passphraseField.bottomAnchor,
+    self.inputWalletButton.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
+    self.inputWalletButton.topAnchor.constraint(equalTo: self.passphraseField.bottomAnchor,
                                                   constant: margin).isActive = true
   }
 
-  @objc private func restoreWalletButtonTapped() {
+  @objc private func inputWalletButtonTapped() {
     let mnemonic = self.mnemonicField.text ?? ""
     let passphrase = self.passphraseField.text ?? ""
-    self.restoreWalletDelegate?.restoreWalletViewDidPressRestoreWallet(self,
+    self.inputWalletDelegate?.inputWalletViewDidPressInputWallet(self,
                                                                        mnemonic: mnemonic,
                                                                        passphrase: passphrase)
   }
 
   @objc private func closeButtonTapped() {
-    self.restoreWalletDelegate?.restoreWalletViewDidPressClose(self)
+    self.inputWalletDelegate?.inputWalletViewDidPressClose(self)
   }
 }

@@ -19,9 +19,9 @@ public class RestoreWalletViewController: UIViewController {
   public init() {
     super.init(nibName: nil, bundle: nil)
 
-    let restoreWalletView = RestoreWalletView()
-    restoreWalletView.restoreWalletDelegate = self
-    self.view = restoreWalletView
+    let inputWalletView = InputWalletView()
+    inputWalletView.inputWalletDelegate = self
+    self.view = inputWalletView
   }
 
   public required convenience init?(coder aDecoder: NSCoder) {
@@ -29,14 +29,15 @@ public class RestoreWalletViewController: UIViewController {
   }
 }
 
-extension RestoreWalletViewController: RestoreWalletViewDelegate {
-  public func restoreWalletViewDidPressClose(_ restoreWalletView: RestoreWalletView) {
+extension RestoreWalletViewController: InputWalletViewDelegate {
+
+  public func inputWalletViewDidPressClose(_ inputWalletView: InputWalletView) {
     self.delegate?.restoreWalletViewControllerDidRequestClose(self)
   }
 
-  public func restoreWalletViewDidPressRestoreWallet(_ restoreWalletView: RestoreWalletView,
-                                                     mnemonic: String,
-                                                     passphrase: String) {
+  public func inputWalletViewDidPressInputWallet(_ inputWalletView: InputWalletView,
+                                                 mnemonic: String,
+                                                 passphrase: String) {
     // TODO: Consider if this functionality should just be exposed in TezosKit on MnemonicUtil.
     guard Mnemonic.validate(mnemonic: mnemonic) else {
       SVProgressHUD.showError(withStatus: "Invalid Mnemonic.\nDouble check and try again?")
