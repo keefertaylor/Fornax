@@ -76,7 +76,7 @@ public class NewWalletView: UIView {
     self.mnemonicLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                 constant: margin).isActive = true
     self.mnemonicLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                 constant: margin).isActive = true
+                                                 constant: -margin).isActive = true
     self.mnemonicLabel.topAnchor.constraint(equalTo: self.closeButton.bottomAnchor,
                                             constant: margin).isActive = true
     self.mnemonicLabel.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
@@ -84,7 +84,7 @@ public class NewWalletView: UIView {
     self.passphraseField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                   constant: margin).isActive = true
     self.passphraseField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                   constant: margin).isActive = true
+                                                   constant: -margin).isActive = true
     self.passphraseField.topAnchor.constraint(equalTo: self.mnemonicLabel.bottomAnchor,
                                               constant: margin).isActive = true
     self.passphraseField.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
@@ -92,7 +92,7 @@ public class NewWalletView: UIView {
     self.submitButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                constant: margin).isActive = true
     self.submitButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                constant: margin).isActive = true
+                                                constant: -margin).isActive = true
     self.submitButton.topAnchor.constraint(equalTo: self.passphraseField.bottomAnchor,
                                            constant: margin).isActive = true
     self.submitButton.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
