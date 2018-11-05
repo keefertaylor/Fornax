@@ -18,6 +18,8 @@ public class WalletView: UIView {
 
     super.init(frame: CGRect.zero)
 
+    self.backgroundColor = UIColor.blue
+
     walletAddress.text = address
     walletAddress.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(walletAddress)

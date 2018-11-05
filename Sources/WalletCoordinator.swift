@@ -34,7 +34,10 @@ extension WalletCoordinator: WelcomeViewControllerDelegate {
   public func welcomeViewControllerDidRequestRestoreWallet(_ welcomeViewController: WelcomeViewController) {
     let restoreWalletViewController = RestoreWalletViewController()
     restoreWalletViewController.delegate = self
-    self.rootViewController.present(restoreWalletViewController, animated: true)
+
+    let navController = UINavigationController(rootViewController: restoreWalletViewController)
+
+    self.rootViewController.present(navController, animated: true)
   }
 
   public func welcomeViewControllerDidRequestNewWallet(_ welcomeViewController: WelcomeViewController) {
@@ -58,12 +61,14 @@ extension WalletCoordinator: RestoreWalletViewControllerDelegate {
     DispatchQueue.global(qos: .userInitiated).async {
       self.activeWallet = Wallet(mnemonic: mnemonic, passphrase: passphrase)
       DispatchQueue.main.async {
-        if self.activeWallet != nil {
-          SVProgressHUD.dismiss()
-          // TODO: Push a wallet VC.
-        } else {
-          SVProgressHUD.showError(withStatus: "Something went wrong.")
+        guard let activeWallet = self.activeWallet,
+              let navController = restoreWalletViewController.navigationController else {
+                SVProgressHUD.showError(withStatus: "Something went wrong.")
+                return
         }
+        SVProgressHUD.dismiss()
+        let walletViewController = WalletViewController(wallet: activeWallet)
+        navController.pushViewController(walletViewController, animated: true)
       }
     }
   }
