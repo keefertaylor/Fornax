@@ -49,24 +49,21 @@ public class WelcomeView: UIView {
   }
 
   private func applyConstraints() {
-    let margin: CGFloat = 30
-    let buttonHeight: CGFloat = 50
-
     self.newWalletButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,
-                                                  constant: margin).isActive = true
+                                                  constant: UIConstants.componentMargin).isActive = true
     self.newWalletButton.trailingAnchor.constraint(equalTo: self.trailingAnchor,
-                                                   constant: -margin).isActive = true
-    self.newWalletButton.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
+                                                   constant: -UIConstants.componentMargin).isActive = true
+    self.newWalletButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
     self.newWalletButton.bottomAnchor.constraint(equalTo: self.restoreWalletButton.topAnchor,
-                                                 constant: -margin).isActive = true
+                                                 constant: -UIConstants.componentMargin).isActive = true
 
     self.restoreWalletButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,
-                                                      constant: margin).isActive = true
+                                                      constant: UIConstants.componentMargin).isActive = true
     self.restoreWalletButton.trailingAnchor.constraint(equalTo: self.trailingAnchor,
-                                                       constant: -margin).isActive = true
-    self.restoreWalletButton.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
+                                                       constant: -UIConstants.componentMargin).isActive = true
+    self.restoreWalletButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
     self.restoreWalletButton.bottomAnchor.constraint(equalTo: self.bottomAnchor,
-                                                     constant: -margin).isActive = true
+                                                     constant: -UIConstants.componentMargin).isActive = true
   }
 
   @objc private func restoreWalletButtonTapped() {

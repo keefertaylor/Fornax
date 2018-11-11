@@ -62,41 +62,37 @@ public class NewWalletView: UIView {
   }
 
   private func applyConstraints() {
-    // TODO: Refactor layout constraints into a constants file
-    let margin: CGFloat = 30
-    let componentHeight: CGFloat = 50
-
     self.closeButton.sizeToFit()
     self.closeButton.widthAnchor.constraint(equalToConstant: self.closeButton.frame.size.width).isActive = true
     self.closeButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                               constant: -margin).isActive = true
+                                               constant: -UIConstants.componentMargin).isActive = true
     self.closeButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
-                                          constant: margin).isActive = true
-    self.closeButton.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
+                                          constant: UIConstants.componentMargin).isActive = true
+    self.closeButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
 
     self.mnemonicLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                constant: margin).isActive = true
+                                                constant: UIConstants.componentMargin).isActive = true
     self.mnemonicLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                 constant: -margin).isActive = true
+                                                 constant: -UIConstants.componentMargin).isActive = true
     self.mnemonicLabel.topAnchor.constraint(equalTo: self.closeButton.bottomAnchor,
-                                            constant: margin).isActive = true
-    self.mnemonicLabel.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
+                                            constant: UIConstants.componentMargin).isActive = true
+    self.mnemonicLabel.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
 
     self.passphraseField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                  constant: margin).isActive = true
+                                                  constant: UIConstants.componentMargin).isActive = true
     self.passphraseField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                   constant: -margin).isActive = true
+                                                   constant: -UIConstants.componentMargin).isActive = true
     self.passphraseField.topAnchor.constraint(equalTo: self.mnemonicLabel.bottomAnchor,
-                                              constant: margin).isActive = true
-    self.passphraseField.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
+                                              constant: UIConstants.componentMargin).isActive = true
+    self.passphraseField.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
 
     self.submitButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                               constant: margin).isActive = true
+                                               constant: UIConstants.componentMargin).isActive = true
     self.submitButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                constant: -margin).isActive = true
+                                                constant: -UIConstants.componentMargin).isActive = true
     self.submitButton.topAnchor.constraint(equalTo: self.passphraseField.bottomAnchor,
-                                           constant: margin).isActive = true
-    self.submitButton.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
+                                           constant: UIConstants.componentMargin).isActive = true
+    self.submitButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
   }
 
   @objc private func closeButtonTapped() {

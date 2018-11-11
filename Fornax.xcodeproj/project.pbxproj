@@ -14,6 +14,7 @@
 		772E4E68218FD6B4002A44A3 /* NewWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E67218FD6B4002A44A3 /* NewWalletViewController.swift */; };
 		772E4E6A2190CFC5002A44A3 /* ConfirmWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E692190CFC5002A44A3 /* ConfirmWalletViewController.swift */; };
 		772E4E722197B40F002A44A3 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E712197B40F002A44A3 /* TextField.swift */; };
+		772E4E742197B7ED002A44A3 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E732197B7ED002A44A3 /* UIConstants.swift */; };
 		7786030B218D1BD30036843F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786030A218D1BD30036843F /* AppDelegate.swift */; };
 		77860310218D1BD30036843F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7786030E218D1BD30036843F /* Main.storyboard */; };
 		77860312218D1BD40036843F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77860311218D1BD40036843F /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		772E4E67218FD6B4002A44A3 /* NewWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalletViewController.swift; sourceTree = "<group>"; };
 		772E4E692190CFC5002A44A3 /* ConfirmWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmWalletViewController.swift; sourceTree = "<group>"; };
 		772E4E712197B40F002A44A3 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		772E4E732197B7ED002A44A3 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		77860307218D1BD30036843F /* Fornax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fornax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7786030A218D1BD30036843F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7786030F218D1BD30036843F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				772E4E61218FBEE6002A44A3 /* WalletView.swift */,
 				772E4E692190CFC5002A44A3 /* ConfirmWalletViewController.swift */,
 				772E4E712197B40F002A44A3 /* TextField.swift */,
+				772E4E732197B7ED002A44A3 /* UIConstants.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				7786032C218D36330036843F /* Button.swift in Sources */,
 				7786030B218D1BD30036843F /* AppDelegate.swift in Sources */,
 				77860328218D31F10036843F /* InputWalletView.swift in Sources */,
+				772E4E742197B7ED002A44A3 /* UIConstants.swift in Sources */,
 				772E4E68218FD6B4002A44A3 /* NewWalletViewController.swift in Sources */,
 				77860326218D2CE10036843F /* WelcomeViewController.swift in Sources */,
 				772E4E722197B40F002A44A3 /* TextField.swift in Sources */,

@@ -91,56 +91,52 @@ public class WalletView: UIView {
   }
 
   private func applyConstraints() {
-    // TODO: Refactor layout constraints into a constants file
-    let margin: CGFloat = 30
-    let componentHeight: CGFloat = 50
-
     self.walletAddress.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
-                                            constant: margin).isActive = true
-    self.walletAddress.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
+                                            constant: UIConstants.componentMargin).isActive = true
+    self.walletAddress.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
     self.walletAddress.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                constant: margin).isActive = true
+                                                constant: UIConstants.componentMargin).isActive = true
     self.walletAddress.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                 constant: -margin).isActive = true
+                                                 constant: -UIConstants.componentMargin).isActive = true
 
     self.balanceLabel.topAnchor.constraint(equalTo: self.walletAddress.bottomAnchor,
-                                           constant: margin).isActive = true
-    self.balanceLabel.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
+                                           constant: UIConstants.componentMargin).isActive = true
+    self.balanceLabel.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
     self.balanceLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                               constant: margin).isActive = true
+                                               constant: UIConstants.componentMargin).isActive = true
     self.balanceLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                constant: -margin).isActive = true
+                                                constant: -UIConstants.componentMargin).isActive = true
 
     self.currentBalanceLabel.topAnchor.constraint(equalTo: self.balanceLabel.bottomAnchor).isActive = true
-    self.currentBalanceLabel.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
+    self.currentBalanceLabel.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
     self.currentBalanceLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                      constant: margin).isActive = true
+                                                      constant: UIConstants.componentMargin).isActive = true
     self.currentBalanceLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                       constant: -margin).isActive = true
+                                                       constant: -UIConstants.componentMargin).isActive = true
 
     self.lockWalletButton.topAnchor.constraint(equalTo: self.currentBalanceLabel.bottomAnchor,
-                                               constant: margin).isActive = true
-    self.lockWalletButton.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
+                                               constant: UIConstants.componentMargin).isActive = true
+    self.lockWalletButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
     self.lockWalletButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                   constant: margin).isActive = true
+                                                   constant: UIConstants.componentMargin).isActive = true
     self.lockWalletButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                    constant: -margin).isActive = true
+                                                    constant: -UIConstants.componentMargin).isActive = true
 
     self.copyAddressButton.topAnchor.constraint(equalTo: self.lockWalletButton.bottomAnchor,
-                                                constant: margin).isActive = true
-    self.copyAddressButton.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
+                                                constant: UIConstants.componentMargin).isActive = true
+    self.copyAddressButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
     self.copyAddressButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                    constant: margin).isActive = true
+                                                    constant: UIConstants.componentMargin).isActive = true
     self.copyAddressButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                     constant: -margin).isActive = true
+                                                     constant: -UIConstants.componentMargin).isActive = true
 
     self.refreshBalanceButton.topAnchor.constraint(equalTo: self.copyAddressButton.bottomAnchor,
-                                                   constant: margin).isActive = true
-    self.refreshBalanceButton.heightAnchor.constraint(equalToConstant: componentHeight).isActive = true
+                                                   constant: UIConstants.componentMargin).isActive = true
+    self.refreshBalanceButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
     self.refreshBalanceButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                       constant: margin).isActive = true
+                                                       constant: UIConstants.componentMargin).isActive = true
     self.refreshBalanceButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                        constant: -margin).isActive = true
+                                                        constant: -UIConstants.componentMargin).isActive = true
   }
 
   @objc private func lockWalletButtonTapped() {
