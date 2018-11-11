@@ -5,7 +5,7 @@ public class HUDManager {
   public static func configure() {
     SVProgressHUD.setBorderColor(UIConstants.tezosLightBlue)
     SVProgressHUD.setBorderWidth(UIConstants.borderWidth)
-    SVProgressHUD.setCornerRadius(UIConstants.borderRadius)
+    SVProgressHUD.setCornerRadius(UIConstants.cornerRadius)
     SVProgressHUD.setForegroundColor(UIConstants.accentColor)
     SVProgressHUD.setBackgroundColor(UIConstants.tezosDarkBlue)
     SVProgressHUD.setMinimumDismissTimeInterval(2)

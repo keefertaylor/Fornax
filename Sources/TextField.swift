@@ -9,7 +9,7 @@ public class TextField: UITextField {
     self.tintColor = UIConstants.tezosLightBlue
     self.layer.borderColor = UIConstants.tezosLightBlue.cgColor
     self.layer.borderWidth = UIConstants.borderWidth
-    self.layer.cornerRadius = UIConstants.borderRadius
+    self.layer.cornerRadius = UIConstants.cornerRadius
   }
 
   public required convenience init?(coder aDecoder: NSCoder) {
@@ -17,7 +17,7 @@ public class TextField: UITextField {
   }
 
   public override func textRect(forBounds bounds: CGRect) -> CGRect {
-    return bounds.insetBy(dx: UIConstants.borderRadius, dy: 0)
+    return bounds.insetBy(dx: UIConstants.cornerRadius, dy: 0)
   }
 
   public override func editingRect(forBounds bounds: CGRect) -> CGRect {

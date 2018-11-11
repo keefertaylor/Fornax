@@ -21,7 +21,7 @@ public class FornaxLogo: UIView {
     self.boxView.clipsToBounds = true
     self.boxView.layer.borderWidth = UIConstants.borderWidth
     self.boxView.layer.borderColor = UIConstants.tezosDarkBlue.cgColor
-    self.boxView.layer.cornerRadius = UIConstants.borderRadius
+    self.boxView.layer.cornerRadius = UIConstants.cornerRadius
     self.boxView.translatesAutoresizingMaskIntoConstraints = false
 
     self.titleLabel.text = "FORNAX"

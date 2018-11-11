@@ -9,13 +9,13 @@ public class TextView: UITextView {
     self.tintColor = UIConstants.tezosLightBlue
     self.layer.borderColor = UIConstants.tezosLightBlue.cgColor
     self.layer.borderWidth = UIConstants.borderWidth
-    self.layer.cornerRadius = UIConstants.borderRadius
+    self.layer.cornerRadius = UIConstants.cornerRadius
     self.font = UIFont.systemFont(ofSize: 17)
     self.autocapitalizationType = .none
-    self.textContainerInset = UIEdgeInsets(top: UIConstants.borderRadius,
-                                           left: UIConstants.borderRadius,
-                                           bottom: UIConstants.borderRadius,
-                                           right: UIConstants.borderRadius)
+    self.textContainerInset = UIEdgeInsets(top: UIConstants.cornerRadius,
+                                           left: UIConstants.cornerRadius,
+                                           bottom: UIConstants.cornerRadius,
+                                           right: UIConstants.cornerRadius)
   }
 
   public required convenience init?(coder aDecoder: NSCoder) {

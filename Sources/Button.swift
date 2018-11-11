@@ -7,7 +7,7 @@ public class Button: UIButton {
     super.init(frame: frame)
     self.translatesAutoresizingMaskIntoConstraints = false
 
-    self.layer.cornerRadius = UIConstants.borderRadius
+    self.layer.cornerRadius = UIConstants.cornerRadius
 
     self.backgroundColor = UIConstants.tezosLightBlue
     self.setTitleColor(UIConstants.accentColor, for: .normal)

@@ -14,9 +14,8 @@ public class UIConstants {
   // Preferred border width
   public static let borderWidth: CGFloat = 3
 
-  // Preferred border radius
-  // TODO: corner radius
-  public static let borderRadius: CGFloat = 10
+  // Preferred corner radius
+  public static let cornerRadius: CGFloat = 10
 
   // Standard colors
   public static let tezosLightBlue = UIColor(red: 44/255, green: 125/255, blue: 247/255, alpha: 1)
