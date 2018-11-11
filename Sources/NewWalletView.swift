@@ -13,7 +13,7 @@ public class NewWalletView: UIView {
 
   private let mnemonicLabel: UILabel
 
-  private let passphraseField: UITextField
+  private let passphraseField: TextField
 
   private let closeButton: Button
   private let submitButton: Button
@@ -25,7 +25,7 @@ public class NewWalletView: UIView {
   public init(mnemonic: String) {
     self.mnemonicLabel = UILabel()
 
-    self.passphraseField = UITextField()
+    self.passphraseField = TextField()
 
     self.closeButton = Button()
     self.submitButton = Button()

@@ -11,11 +11,11 @@ public protocol InputWalletViewDelegate: class {
 public class InputWalletView: UIScrollView {
   public weak var inputWalletDelegate: InputWalletViewDelegate?
 
-  private let closeButton: UIButton
-  private let inputWalletButton: UIButton
+  private let closeButton: Button
+  private let inputWalletButton: Button
 
-  private let mnemonicField: UITextField
-  private let passphraseField: UITextField
+  private let mnemonicField: TextField
+  private let passphraseField: TextField
 
   override open class var requiresConstraintBasedLayout: Bool {
     return true
@@ -28,10 +28,10 @@ public class InputWalletView: UIScrollView {
     let closeButton = Button(frame: CGRect.zero)
     self.closeButton = closeButton
 
-    let mnemonicField = UITextField(frame: CGRect.zero)
+    let mnemonicField = TextField(frame: CGRect.zero)
     self.mnemonicField = mnemonicField
 
-    let passphraseField = UITextField(frame: CGRect.zero)
+    let passphraseField = TextField(frame: CGRect.zero)
     self.passphraseField = passphraseField
 
     super.init(frame: CGRect.zero)
