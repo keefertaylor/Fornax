@@ -1,6 +1,5 @@
 import Foundation
 import UIKit
-import SVProgressHUD
 import TezosKit
 
 public protocol WalletViewControllerDelegate: class {
@@ -40,7 +39,7 @@ public class WalletViewController: UIViewController {
     self.tezosClient.getBalance(wallet: self.wallet) { balance, error in
       guard let balance = balance,
         error == nil else {
-          SVProgressHUD.showError(withStatus: "Error fetching balance")
+          HUDManager.showErrorAndDismiss("Error fetching balance")
           return
       }
 
@@ -58,7 +57,7 @@ extension WalletViewController: WalletViewDelegate {
 
   public func walletViewDidPressCopyAddress(_ walletView: WalletView) {
     UIPasteboard.general.string = self.wallet.address
-    SVProgressHUD.showInfo(withStatus: "Address copied to clipboard.")
+    HUDManager.showInfoAndDismiss("Address copied to clipboard.")
   }
 
   public func walletViewDidPressRefreshBalance(_ walletView: WalletView) {

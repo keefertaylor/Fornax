@@ -1,5 +1,4 @@
 import Foundation
-import SVProgressHUD
 import TezosKit
 import UIKit
 
@@ -40,19 +39,19 @@ extension ConfirmWalletViewController: InputWalletViewDelegate {
                                                  passphrase: String) {
     // Confirm the wallet is actually matching before making delegate callback.
     // TODO: Weakself
-    SVProgressHUD.show()
+    HUDManager.show()
     DispatchQueue.global(qos: .userInitiated).async {
       guard let wallet = Wallet(mnemonic: mnemonic, passphrase: passphrase) else {
-        SVProgressHUD.showError(withStatus: "Something went wrong\nTry again?")
+        HUDManager.showErrorAndDismiss("Something went wrong\nTry again?")
         return
       }
 
       guard wallet == self.wallet else {
-        SVProgressHUD.showError(withStatus: "Wallets didn't match.\nTry again?")
+        HUDManager.showErrorAndDismiss("Wallets didn't match.\nTry again?")
         return
       }
 
-      SVProgressHUD.dismiss()
+      HUDManager.dismiss()
 
       DispatchQueue.main.async {
         self.delegate?.confirmWalletViewControllerDidConfirmWallet(self, wallet: self.wallet)

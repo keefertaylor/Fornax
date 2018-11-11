@@ -1,5 +1,4 @@
 import Foundation
-import SVProgressHUD
 import TezosKit
 import UIKit
 
@@ -55,7 +54,7 @@ extension WalletCoordinator: WelcomeViewControllerDelegate {
 
   public func welcomeViewControllerDidRequestNewWallet(_ welcomeViewController: WelcomeViewController) {
     guard let mnemonic = MnemonicUtil.generateMnemonic() else {
-      SVProgressHUD.showError(withStatus: "Unknown Error\nPlease try again?")
+      HUDManager.showErrorAndDismiss("Unknown Error\nPlease try again?")
       return
     }
     let newWalletViewController = NewWalletViewController(mnemonic: mnemonic)
@@ -76,17 +75,17 @@ extension WalletCoordinator: RestoreWalletViewControllerDelegate {
                                                                  mnemonic: String,
                                                                  passphrase: String) {
     // Generating a wallet is a cryptographic process and can take time so show a spinner.
-    SVProgressHUD.show()
+    HUDManager.show()
     // TODO: Use weakself to prevent retain cycles.
     DispatchQueue.global(qos: .userInitiated).async {
       self.activeWallet = Wallet(mnemonic: mnemonic, passphrase: passphrase)
       DispatchQueue.main.async {
         guard let activeWallet = self.activeWallet,
               let navController = restoreWalletViewController.navigationController else {
-                SVProgressHUD.showError(withStatus: "Something went wrong.")
+                HUDManager.showErrorAndDismiss("Something went wrong.")
                 return
         }
-        SVProgressHUD.dismiss()
+        HUDManager.dismiss()
 
         self.pushWalletController(navigationController: navController, wallet: activeWallet)
       }
@@ -111,17 +110,17 @@ extension WalletCoordinator: NewWalletViewControllerDelegate {
                                                          passphrase: String) {
     // TODO: consider de-duping with logic to restore a wallet.
     // Generating a wallet is a cryptographic process and can take time so show a spinner.
-    SVProgressHUD.show()
+    HUDManager.show()
     // TODO: Use weakself to prevent retain cycles.
     DispatchQueue.global(qos: .userInitiated).async {
       let wallet = Wallet(mnemonic: mnemonic, passphrase: passphrase)
       DispatchQueue.main.async {
         guard let wallet = wallet,
           let navController = newWalletViewController.navigationController else {
-            SVProgressHUD.showError(withStatus: "Something went wrong.")
+            HUDManager.showErrorAndDismiss("Something went wrong.")
             return
         }
-        SVProgressHUD.dismiss()
+        HUDManager.dismiss()
 
         let confirmWalletViewController = ConfirmWalletViewController(wallet: wallet)
         confirmWalletViewController.delegate = self
@@ -140,7 +139,7 @@ extension WalletCoordinator: ConfirmWalletViewControllerDelegate {
   public func confirmWalletViewControllerDidConfirmWallet(_ confirmWalletViewController: ConfirmWalletViewController,
                                                           wallet: Wallet) {
     guard let navigationController = confirmWalletViewController.navigationController else {
-      SVProgressHUD.showError(withStatus: "Something went wrong.")
+      HUDManager.showErrorAndDismiss("Something went wrong.")
       return
     }
     self.pushWalletController(navigationController: navigationController, wallet: wallet)
