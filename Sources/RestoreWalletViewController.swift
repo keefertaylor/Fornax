@@ -18,7 +18,7 @@ public class RestoreWalletViewController: UIViewController {
   public init() {
     super.init(nibName: nil, bundle: nil)
 
-    self.navigationItem.title = "Restore Wallet"
+    self.navigationItem.title = "RESTORE WALLET"
 
     let closeButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeButtonPressed))
     self.navigationItem.rightBarButtonItem = closeButton
