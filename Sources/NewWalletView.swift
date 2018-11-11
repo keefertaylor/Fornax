@@ -39,6 +39,7 @@ public class NewWalletView: UIView {
 
     passphraseField.placeholder = "Passphrase"
     passphraseField.translatesAutoresizingMaskIntoConstraints = false
+    passphraseField.isSecureTextEntry = true
     self.addSubview(passphraseField)
 
     submitButton.setTitle("Create Wallet", for: .normal)

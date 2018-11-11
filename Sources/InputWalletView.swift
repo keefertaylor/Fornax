@@ -28,6 +28,7 @@ public class InputWalletView: UIView {
 
     let passphraseField = TextField(frame: CGRect.zero)
     self.passphraseField = passphraseField
+    self.passphraseField.isSecureTextEntry = true
 
     super.init(frame: CGRect.zero)
 
