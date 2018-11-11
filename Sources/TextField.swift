@@ -10,6 +10,7 @@ public class TextField: MDCTextField {
     self.controller = MDCTextInputControllerOutlined(textInput: self)
   }
 
+  // TODO: Straighten out story with encoding / decoding and nibs.
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
