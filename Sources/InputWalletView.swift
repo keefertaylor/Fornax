@@ -42,7 +42,7 @@ public class InputWalletView: UIScrollView {
     mnemonicField.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(mnemonicField)
 
-    passphraseField.placeholder = "Passphrase"
+    passphraseField.placeholder = "Optional Passphrase"
     passphraseField.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(passphraseField)
 
