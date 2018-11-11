@@ -6,9 +6,20 @@ public class Button: UIButton {
   public override init(frame: CGRect) {
     super.init(frame: frame)
     self.translatesAutoresizingMaskIntoConstraints = false
+
+    self.layer.borderColor = UIConstants.tezosLightBlue.cgColor
+    self.layer.borderWidth = UIConstants.borderWidth
+    self.layer.cornerRadius = UIConstants.borderRadius
+
+    self.setTitleColor(UIConstants.tezosLightBlue, for: .normal)
   }
 
   public required convenience init?(coder aDecoder: NSCoder) {
     self.init(frame: CGRect.zero)
+  }
+
+  public override func setTitle(_ title: String?, for state: UIControl.State) {
+    let upperCasedTitle = title?.uppercased()
+    super.setTitle(upperCasedTitle, for: state)
   }
 }

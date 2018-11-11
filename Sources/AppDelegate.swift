@@ -17,10 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.walletCoordinator = walletCoordinator
     self.window = window
 
+    self.setUpAppearances()
+
     return true
   }
 
   func applicationDidEnterBackground(_ application: UIApplication) {
     self.walletCoordinator.reset(animated: false)
+  }
+
+  private func setUpAppearances() {
+    UINavigationBar.appearance().barTintColor =  UIConstants.tezosDarkBlue
+    UINavigationBar.appearance().tintColor = .white
+    UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+    UINavigationBar.appearance().isTranslucent = false
   }
 }
