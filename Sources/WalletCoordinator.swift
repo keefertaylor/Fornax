@@ -97,6 +97,8 @@ extension WalletCoordinator: WalletViewControllerDelegate {
   public func walletViewControllerDidPressLock(_ walletViewController: WalletViewController) {
     self.activeWallet = nil;
     walletViewController.dismiss(animated: true)
+
+    HUDManager.showInfoAndDismiss("Securely removed wallet.")
   }
 }
 

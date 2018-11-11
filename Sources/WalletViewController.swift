@@ -18,12 +18,20 @@ public class WalletViewController: UIViewController {
     self.wallet = wallet
     self.tezosClient = tezosClient
 
-    let walletView = WalletView(address: wallet.address)
-    self.walletView = walletView
+    self.walletView = WalletView(address: wallet.address)
 
     super.init(nibName: nil, bundle: nil)
 
-    walletView.delegate = self
+    self.navigationItem.title = "WALLET"
+    self.navigationItem.hidesBackButton = true
+
+    let lockButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closePressed))
+    self.navigationItem.leftBarButtonItem = lockButton
+
+    let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshPressed))
+    let copyButton = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(copyPressed))
+    self.navigationItem.rightBarButtonItems = [refreshButton, copyButton]
+
     self.view = walletView
 
     self.updateBalance()
@@ -36,6 +44,7 @@ public class WalletViewController: UIViewController {
 
   private func updateBalance() {
     // TODO: Check retain cycles.
+    HUDManager.show()
     self.tezosClient.getBalance(wallet: self.wallet) { balance, error in
       guard let balance = balance,
         error == nil else {
@@ -43,24 +52,23 @@ public class WalletViewController: UIViewController {
           return
       }
 
+      HUDManager.dismiss()
       DispatchQueue.main.async {
         self.walletView.updateBalance(balance: balance)
       }
     }
   }
-}
 
-extension WalletViewController: WalletViewDelegate {
-  public func walletViewDidPressLock(_ walletView: WalletView) {
+  @objc private func closePressed() {
     self.delegate?.walletViewControllerDidPressLock(self)
   }
 
-  public func walletViewDidPressCopyAddress(_ walletView: WalletView) {
+  @objc private func copyPressed() {
     UIPasteboard.general.string = self.wallet.address
     HUDManager.showInfoAndDismiss("Address copied to clipboard.")
   }
 
-  public func walletViewDidPressRefreshBalance(_ walletView: WalletView) {
+  @objc private func refreshPressed() {
     self.updateBalance()
   }
 }
