@@ -7,7 +7,7 @@ public class UIConstants {
 
   // Preferred component height.
   public static let componentHeight: CGFloat = 50
-
+  
   /** Please do not instantiate this constants class. */
   @available(*, unavailable)
   private init() {}

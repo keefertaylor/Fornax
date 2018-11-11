@@ -2,7 +2,6 @@ import Foundation
 import UIKit
 
 public protocol InputWalletViewDelegate: class {
-  func inputWalletViewDidPressClose(_ inputWalletView: InputWalletView)
   func inputWalletViewDidPressInputWallet(_ inputWalletView: InputWalletView,
                                               mnemonic: String,
                                               passphrase: String)
@@ -11,7 +10,6 @@ public protocol InputWalletViewDelegate: class {
 public class InputWalletView: UIView {
   public weak var inputWalletDelegate: InputWalletViewDelegate?
 
-  private let closeButton: Button
   private let inputWalletButton: Button
 
   private let mnemonicField: TextField
@@ -24,9 +22,6 @@ public class InputWalletView: UIView {
   public init() {
     let inputWalletButton = Button(frame: CGRect.zero)
     self.inputWalletButton = inputWalletButton
-
-    let closeButton = Button(frame: CGRect.zero)
-    self.closeButton = closeButton
 
     let mnemonicField = TextField(frame: CGRect.zero)
     self.mnemonicField = mnemonicField
@@ -52,10 +47,6 @@ public class InputWalletView: UIView {
                                   for: .touchUpInside)
     self.addSubview(inputWalletButton)
 
-    closeButton.setTitle("X", for: .normal)
-    closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
-    self.addSubview(closeButton)
-
     self.applyConstraints()
   }
 
@@ -68,16 +59,8 @@ public class InputWalletView: UIView {
   }
 
   private func applyConstraints() {
-    self.closeButton.sizeToFit()
-    self.closeButton.widthAnchor.constraint(equalToConstant: self.closeButton.frame.size.width).isActive = true
-    self.closeButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                               constant: -UIConstants.componentMargin).isActive = true
-    self.closeButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
-                                          constant: UIConstants.componentMargin).isActive = true
-    self.closeButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
-
     self.mnemonicField.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
-    self.mnemonicField.topAnchor.constraint(equalTo: self.closeButton.bottomAnchor,
+    self.mnemonicField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
                                             constant: UIConstants.componentMargin).isActive = true
     self.mnemonicField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                 constant: UIConstants.componentMargin).isActive = true
@@ -107,9 +90,5 @@ public class InputWalletView: UIView {
     self.inputWalletDelegate?.inputWalletViewDidPressInputWallet(self,
                                                                        mnemonic: mnemonic,
                                                                        passphrase: passphrase)
-  }
-
-  @objc private func closeButtonTapped() {
-    self.inputWalletDelegate?.inputWalletViewDidPressClose(self)
   }
 }

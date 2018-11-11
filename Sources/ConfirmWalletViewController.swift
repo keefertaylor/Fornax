@@ -18,6 +18,15 @@ public class ConfirmWalletViewController: UIViewController {
 
     super.init(nibName: nil, bundle: nil)
 
+    self.navigationItem.title = "Confirm Wallet"
+
+    // TODO: Use a proper icon here.
+    let closeButton = UIBarButtonItem(title: "X",
+                                      style: .plain,
+                                      target: self,
+                                      action: #selector(closeButtonPressed))
+    self.navigationItem.rightBarButtonItem = closeButton
+
     let inputWalletView = InputWalletView()
     inputWalletView.inputWalletDelegate = self
     self.view = inputWalletView
@@ -27,13 +36,13 @@ public class ConfirmWalletViewController: UIViewController {
   public required convenience init?(coder aDecoder: NSCoder) {
     fatalError()
   }
+
+  @objc public func closeButtonPressed() {
+    self.delegate?.confirmWalletViewControllerDidRequestDismiss(self)
+  }
 }
 
 extension ConfirmWalletViewController: InputWalletViewDelegate {
-  public func inputWalletViewDidPressClose(_ inputWalletView: InputWalletView) {
-    self.delegate?.confirmWalletViewControllerDidRequestDismiss(self)
-  }
-
   public func inputWalletViewDidPressInputWallet(_ inputWalletView: InputWalletView,
                                                  mnemonic: String,
                                                  passphrase: String) {

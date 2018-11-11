@@ -17,6 +17,15 @@ public class NewWalletViewController: UIViewController {
     self.mnemonic = mnemonic
     super.init(nibName: nil, bundle: nil)
 
+    self.navigationItem.title = "New Wallet"
+
+    // TODO: Use a proper icon here.
+    let closeButton = UIBarButtonItem(title: "X",
+                                      style: .plain,
+                                      target: self,
+                                      action: #selector(closeButtonPressed))
+    self.navigationItem.rightBarButtonItem = closeButton
+
     let newWalletView = NewWalletView(mnemonic: mnemonic)
     newWalletView.delegate = self
     self.view = newWalletView
@@ -26,13 +35,13 @@ public class NewWalletViewController: UIViewController {
   public required convenience init?(coder aDecoder: NSCoder) {
     fatalError()
   }
+
+  @objc public func closeButtonPressed() {
+    self.delegate?.newWalletViewControllerDidRequestClose(self)
+  }
 }
 
 extension NewWalletViewController: NewWalletViewDelegate {
-  public func newWalletViewDidPressClose(_ newWalletView: NewWalletView) {
-    self.delegate?.newWalletViewControllerDidRequestClose(self)
-  }
-
   public func newWalletViewDidPressSubmit(_ newWalletView: NewWalletView,
                                           passphrase: String) {
     self.delegate?.newWalletViewControllerDidRequestNewWallet(self,

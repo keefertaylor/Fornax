@@ -18,6 +18,15 @@ public class RestoreWalletViewController: UIViewController {
   public init() {
     super.init(nibName: nil, bundle: nil)
 
+    self.navigationItem.title = "Restore Wallet"
+
+    // TODO: Use a proper icon here.
+    let closeButton = UIBarButtonItem(title: "X",
+                                      style: .plain,
+                                      target: self,
+                                      action: #selector(closeButtonPressed))
+    self.navigationItem.rightBarButtonItem = closeButton
+
     let inputWalletView = InputWalletView()
     inputWalletView.inputWalletDelegate = self
     self.view = inputWalletView
@@ -26,14 +35,13 @@ public class RestoreWalletViewController: UIViewController {
   public required convenience init?(coder aDecoder: NSCoder) {
     self.init()
   }
+
+  @objc public func closeButtonPressed() {
+    self.delegate?.restoreWalletViewControllerDidRequestClose(self)
+  }
 }
 
 extension RestoreWalletViewController: InputWalletViewDelegate {
-
-  public func inputWalletViewDidPressClose(_ inputWalletView: InputWalletView) {
-    self.delegate?.restoreWalletViewControllerDidRequestClose(self)
-  }
-
   public func inputWalletViewDidPressInputWallet(_ inputWalletView: InputWalletView,
                                                  mnemonic: String,
                                                  passphrase: String) {
