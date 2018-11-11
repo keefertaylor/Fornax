@@ -50,8 +50,9 @@ extension WalletCoordinator: WelcomeViewControllerDelegate {
     let restoreWalletViewController = RestoreWalletViewController()
     restoreWalletViewController.delegate = self
 
-    let navController = UINavigationController(rootViewController: restoreWalletViewController)
-    navController.setNavigationBarHidden(true, animated: false)
+    let navController = MDCAppBarNavigationController()
+    navController.delegate = self
+    navController.pushViewController(restoreWalletViewController, animated: false)
 
     self.rootViewController.present(navController, animated: true)
   }
@@ -67,7 +68,6 @@ extension WalletCoordinator: WelcomeViewControllerDelegate {
     let navController = MDCAppBarNavigationController()
     navController.delegate = self
     navController.pushViewController(newWalletViewController, animated: false)
-//    let navController = UINavigationController(rootViewController: newWalletViewController)
     self.rootViewController.present(navController, animated: true)
   }
 }

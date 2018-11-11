@@ -8,7 +8,7 @@ public protocol InputWalletViewDelegate: class {
                                               passphrase: String)
 }
 
-public class InputWalletView: UIScrollView {
+public class InputWalletView: UIView {
   public weak var inputWalletDelegate: InputWalletViewDelegate?
 
   private let closeButton: Button
