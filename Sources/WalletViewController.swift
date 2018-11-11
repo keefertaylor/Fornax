@@ -43,9 +43,12 @@ public class WalletViewController: UIViewController {
   }
 
   private func updateBalance() {
-    // TODO: Check retain cycles.
     HUDManager.show()
-    self.tezosClient.getBalance(wallet: self.wallet) { balance, error in
+    self.tezosClient.getBalance(wallet: self.wallet) { [weak self] balance, error in
+      guard let self = self else {
+        return
+      }
+      
       guard let balance = balance,
         error == nil else {
           HUDManager.showErrorAndDismiss("Error fetching balance")

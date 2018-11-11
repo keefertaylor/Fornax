@@ -76,8 +76,11 @@ extension WalletCoordinator: RestoreWalletViewControllerDelegate {
                                                                  passphrase: String) {
     // Generating a wallet is a cryptographic process and can take time so show a spinner.
     HUDManager.show()
-    // TODO: Use weakself to prevent retain cycles.
-    DispatchQueue.global(qos: .userInitiated).async {
+    DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+      guard let self = self else {
+        return
+      }
+
       self.activeWallet = Wallet(mnemonic: mnemonic, passphrase: passphrase)
       DispatchQueue.main.async {
         guard let activeWallet = self.activeWallet,
@@ -110,11 +113,13 @@ extension WalletCoordinator: NewWalletViewControllerDelegate {
   public func newWalletViewControllerDidRequestNewWallet(_ newWalletViewController: NewWalletViewController,
                                                          mnemonic: String,
                                                          passphrase: String) {
-    // TODO: consider de-duping with logic to restore a wallet.
     // Generating a wallet is a cryptographic process and can take time so show a spinner.
     HUDManager.show()
-    // TODO: Use weakself to prevent retain cycles.
-    DispatchQueue.global(qos: .userInitiated).async {
+    DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+      guard let self = self else {
+        return
+      }
+
       let wallet = Wallet(mnemonic: mnemonic, passphrase: passphrase)
       DispatchQueue.main.async {
         guard let wallet = wallet,

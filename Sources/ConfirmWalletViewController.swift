@@ -46,9 +46,13 @@ extension ConfirmWalletViewController: InputWalletViewDelegate {
                                                  mnemonic: String,
                                                  passphrase: String) {
     // Confirm the wallet is actually matching before making delegate callback.
-    // TODO: Weakself
     HUDManager.show()
-    DispatchQueue.global(qos: .userInitiated).async {
+    DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+      guard let self = self else  {
+        HUDManager.dismiss()
+        return
+      }
+      
       guard let wallet = Wallet(mnemonic: mnemonic, passphrase: passphrase) else {
         HUDManager.showErrorAndDismiss("Something went wrong\nTry again?")
         return
