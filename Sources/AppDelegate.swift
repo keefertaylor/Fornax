@@ -7,7 +7,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var walletCoordinator: WalletCoordinator!
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     let walletCoordinator = WalletCoordinator()
 
     let window = UIWindow(frame: UIScreen.main.bounds)
@@ -28,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   private func setUpAppearances() {
     UINavigationBar.appearance().barTintColor =  UIConstants.tezosDarkBlue
+    UINavigationBar.appearance().barStyle =  .black
     UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIConstants.accentColor]
     UINavigationBar.appearance().isTranslucent = false

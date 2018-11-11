@@ -21,6 +21,10 @@ public class WelcomeViewController: UIViewController {
   public required convenience init?(coder aDecoder: NSCoder) {
     self.init()
   }
+
+  public override var prefersStatusBarHidden: Bool {
+    return true
+  }
 }
 
 extension WelcomeViewController: WelcomeViewDelegate {

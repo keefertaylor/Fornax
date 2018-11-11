@@ -25,6 +25,8 @@ public class NewWalletViewController: UIViewController {
     let newWalletView = NewWalletView(mnemonic: mnemonic)
     newWalletView.delegate = self
     self.view = newWalletView
+
+    self.setNeedsStatusBarAppearanceUpdate()
   }
 
   @available(*, unavailable)
