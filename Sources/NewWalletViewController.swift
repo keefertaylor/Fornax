@@ -15,9 +15,6 @@ public class NewWalletViewController: UIViewController {
 
   public init(mnemonic: String) {
     self.mnemonic = mnemonic
-    // TODO: Remove when it's easy to actually see the mnemonic.
-    print("FYI: Mnemonic is: \(mnemonic)")
-
     super.init(nibName: nil, bundle: nil)
 
     let newWalletView = NewWalletView(mnemonic: mnemonic)
