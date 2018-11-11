@@ -5,8 +5,9 @@ public class TextField: UITextField {
   public override init(frame: CGRect) {
     super.init(frame: frame)
 
-    self.textColor = UIConstants.tezosMediumBlue
-    self.layer.borderColor = UIConstants.tezosDarkBlue.cgColor
+    self.textColor = UIConstants.tezosLightBlue
+    self.tintColor = UIConstants.tezosLightBlue
+    self.layer.borderColor = UIConstants.tezosLightBlue.cgColor
     self.layer.borderWidth = UIConstants.borderWidth
     self.layer.cornerRadius = UIConstants.borderRadius
   }

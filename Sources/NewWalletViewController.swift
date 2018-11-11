@@ -17,7 +17,7 @@ public class NewWalletViewController: UIViewController {
     self.mnemonic = mnemonic
     super.init(nibName: nil, bundle: nil)
 
-    self.navigationItem.title = "New Wallet"
+    self.navigationItem.title = "NEW WALLET"
 
     let closeButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeButtonPressed))
     self.navigationItem.rightBarButtonItem = closeButton
