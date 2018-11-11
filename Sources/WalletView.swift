@@ -3,8 +3,6 @@ import TezosKit
 import UIKit
 
 public class WalletView: UIView {
-  public let currentBalanceLabelPlaceholder = "---"
-
   private let addressLabel: InfoLabel
   private let walletAddress: HeroLabel
 
@@ -36,7 +34,6 @@ public class WalletView: UIView {
     self.balanceLabel.text = "Balance:"
     self.addSubview(self.balanceLabel)
 
-    self.currentBalanceLabel.text = self.currentBalanceLabelPlaceholder
     self.addSubview(self.currentBalanceLabel)
 
     self.applyConstraints()
@@ -51,7 +48,7 @@ public class WalletView: UIView {
   }
 
   public func updateBalance(balance: TezosBalance) {
-    self.currentBalanceLabel.text = balance.humanReadableRepresentation
+    self.currentBalanceLabel.text = balance.humanReadableRepresentation + "XTZ"
   }
 
   private func applyConstraints() {
