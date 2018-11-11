@@ -36,6 +36,7 @@ public class NewWalletView: UIView {
 
     mnemonicLabel.text = mnemonic
     mnemonicLabel.translatesAutoresizingMaskIntoConstraints = false
+    mnemonicLabel.numberOfLines = 0
     self.addSubview(mnemonicLabel)
 
     passphraseField.placeholder = "Passphrase"
@@ -61,6 +62,14 @@ public class NewWalletView: UIView {
     self.init()
   }
 
+  public override func layoutSubviews() {
+    super.layoutSubviews()
+
+    let mnemonicLabelWidth = self.frame.size.width - (UIConstants.componentMargin * 2)
+    self.mnemonicLabel.preferredMaxLayoutWidth = mnemonicLabelWidth
+    self.mnemonicLabel.sizeToFit()
+  }
+
   private func applyConstraints() {
     self.closeButton.sizeToFit()
     self.closeButton.widthAnchor.constraint(equalToConstant: self.closeButton.frame.size.width).isActive = true
@@ -76,7 +85,6 @@ public class NewWalletView: UIView {
                                                  constant: -UIConstants.componentMargin).isActive = true
     self.mnemonicLabel.topAnchor.constraint(equalTo: self.closeButton.bottomAnchor,
                                             constant: UIConstants.componentMargin).isActive = true
-    self.mnemonicLabel.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
 
     self.passphraseField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                   constant: UIConstants.componentMargin).isActive = true
