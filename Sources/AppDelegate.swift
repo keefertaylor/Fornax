@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   private func setUpAppearances() {
     UINavigationBar.appearance().barTintColor =  UIConstants.tezosDarkBlue
     UINavigationBar.appearance().tintColor = .white
-    UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+    UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIConstants.accentColor]
     UINavigationBar.appearance().isTranslucent = false
   }
 }

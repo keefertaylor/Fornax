@@ -7,11 +7,10 @@ public class Button: UIButton {
     super.init(frame: frame)
     self.translatesAutoresizingMaskIntoConstraints = false
 
-    self.layer.borderColor = UIConstants.tezosLightBlue.cgColor
-    self.layer.borderWidth = UIConstants.borderWidth
     self.layer.cornerRadius = UIConstants.borderRadius
 
-    self.setTitleColor(UIConstants.tezosLightBlue, for: .normal)
+    self.backgroundColor = UIConstants.tezosLightBlue
+    self.setTitleColor(UIConstants.accentColor, for: .normal)
   }
 
   public required convenience init?(coder aDecoder: NSCoder) {
