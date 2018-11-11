@@ -33,5 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIConstants.accentColor]
     UINavigationBar.appearance().isTranslucent = false
+
+    HUDManager.configure()
   }
 }

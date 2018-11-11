@@ -2,6 +2,15 @@ import Foundation
 import SVProgressHUD
 
 public class HUDManager {
+  public static func configure() {
+    SVProgressHUD.setBorderColor(UIConstants.tezosLightBlue)
+    SVProgressHUD.setBorderWidth(UIConstants.borderWidth)
+    SVProgressHUD.setCornerRadius(UIConstants.borderRadius)
+    SVProgressHUD.setForegroundColor(UIConstants.accentColor)
+    SVProgressHUD.setBackgroundColor(UIConstants.tezosDarkBlue)
+    SVProgressHUD.setMinimumDismissTimeInterval(2)
+  }
+
   public static func show() {
     SVProgressHUD.show()
   }
