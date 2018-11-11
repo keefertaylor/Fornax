@@ -1,11 +1,12 @@
 import Foundation
+import MaterialComponents
 import TezosKit
 import UIKit
 
 /**
  * A mediator class which will coordinate interactions between Fornax services and view controllers.
  */
-public class WalletCoordinator {
+public class WalletCoordinator: NSObject {
 
   /** The root controller at the base of the hierarchy. */
   public let rootViewController: WelcomeViewController
@@ -16,12 +17,15 @@ public class WalletCoordinator {
   /** The Tezos gateway client. */
   public let tezosClient: TezosClient
 
-  public init() {
+  public override init() {
     self.activeWallet = nil
 
     self.tezosClient = TezosClient()
 
     self.rootViewController = WelcomeViewController()
+
+    super.init()
+
     self.rootViewController.delegate = self
   }
 
@@ -60,8 +64,10 @@ extension WalletCoordinator: WelcomeViewControllerDelegate {
     let newWalletViewController = NewWalletViewController(mnemonic: mnemonic)
     newWalletViewController.delegate = self
 
-    let navController = UINavigationController(rootViewController: newWalletViewController)
-    navController.setNavigationBarHidden(true, animated: false)
+    let navController = MDCAppBarNavigationController()
+    navController.delegate = self
+    navController.pushViewController(newWalletViewController, animated: false)
+//    let navController = UINavigationController(rootViewController: newWalletViewController)
     self.rootViewController.present(navController, animated: true)
   }
 }
@@ -143,5 +149,12 @@ extension WalletCoordinator: ConfirmWalletViewControllerDelegate {
       return
     }
     self.pushWalletController(navigationController: navigationController, wallet: wallet)
+  }
+}
+
+extension WalletCoordinator: MDCAppBarNavigationControllerDelegate {
+  public func appBarNavigationController(_ navigationController: MDCAppBarNavigationController, willAdd appBarViewController: MDCAppBarViewController, asChildOf viewController: UIViewController) {
+    appBarViewController.headerView.backgroundColor = UIColor.blue
+    appBarViewController.headerView.minMaxHeightIncludesSafeArea = false
   }
 }
