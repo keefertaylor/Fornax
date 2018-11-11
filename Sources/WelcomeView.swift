@@ -11,16 +11,16 @@ public class WelcomeView: UIView {
   private let restoreWalletButton: Button
   private let newWalletButton: Button
 
+  private let fornaxLogo: FornaxLogo
+
   override open class var requiresConstraintBasedLayout: Bool {
     return true
   }
 
   public init() {
-    let restoreWalletButton = Button(frame: CGRect.zero)
-    self.restoreWalletButton = restoreWalletButton
-
-    let newWalletButton = Button(frame: CGRect.zero)
-    self.newWalletButton = newWalletButton
+    self.restoreWalletButton = Button(frame: CGRect.zero)
+    self.newWalletButton = Button(frame: CGRect.zero)
+    self.fornaxLogo = FornaxLogo()
 
     super.init(frame: CGRect.zero)
 
@@ -36,6 +36,7 @@ public class WelcomeView: UIView {
     newWalletButton.addTarget(self, action: #selector(newWalletButtonTapped), for: .touchUpInside)
     self.addSubview(newWalletButton)
 
+    self.addSubview(fornaxLogo)
 
     self.applyConstraints()
   }
@@ -49,6 +50,12 @@ public class WelcomeView: UIView {
   }
 
   private func applyConstraints() {
+    self.fornaxLogo.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).isActive = true
+    self.fornaxLogo.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
+                                         constant: UIConstants.componentMargin).isActive = true
+    self.fornaxLogo.widthAnchor.constraint(equalToConstant: 200).isActive = true
+    self.fornaxLogo.heightAnchor.constraint(equalToConstant: 100).isActive = true
+
     self.newWalletButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                   constant: UIConstants.componentMargin).isActive = true
     self.newWalletButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,

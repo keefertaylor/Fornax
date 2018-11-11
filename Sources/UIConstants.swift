@@ -15,6 +15,7 @@ public class UIConstants {
   public static let borderWidth: CGFloat = 3
 
   // Preferred border radius
+  // TODO: corner radius
   public static let borderRadius: CGFloat = 10
 
   // Standard colors
