@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
-import MnemonicKit
 import SVProgressHUD
+import TezosKit
 
 public protocol RestoreWalletViewControllerDelegate: class {
   /**
@@ -38,8 +38,7 @@ extension RestoreWalletViewController: InputWalletViewDelegate {
   public func inputWalletViewDidPressInputWallet(_ inputWalletView: InputWalletView,
                                                  mnemonic: String,
                                                  passphrase: String) {
-    // TODO: Consider if this functionality should just be exposed in TezosKit on MnemonicUtil.
-    guard Mnemonic.validate(mnemonic: mnemonic) else {
+    guard MnemonicUtil.validate(mnemonic: mnemonic) else {
       SVProgressHUD.showError(withStatus: "Invalid Mnemonic.\nDouble check and try again?")
       return
     }
