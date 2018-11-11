@@ -80,12 +80,9 @@ public class NewWalletView: UIView {
                                           constant: UIConstants.componentMargin).isActive = true
     self.closeButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
 
-    self.mnemonicLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                constant: UIConstants.componentMargin).isActive = true
-    self.mnemonicLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                 constant: -UIConstants.componentMargin).isActive = true
     self.mnemonicLabel.topAnchor.constraint(equalTo: self.closeButton.bottomAnchor,
                                             constant: UIConstants.componentMargin).isActive = true
+    self.mnemonicLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
 
     self.passphraseField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                   constant: UIConstants.componentMargin).isActive = true
