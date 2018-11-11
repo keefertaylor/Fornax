@@ -48,6 +48,7 @@ extension WalletCoordinator: WelcomeViewControllerDelegate {
     restoreWalletViewController.delegate = self
 
     let navController = UINavigationController(rootViewController: restoreWalletViewController)
+    navController.setNavigationBarHidden(true, animated: false)
 
     self.rootViewController.present(navController, animated: true)
   }
@@ -61,6 +62,7 @@ extension WalletCoordinator: WelcomeViewControllerDelegate {
     newWalletViewController.delegate = self
 
     let navController = UINavigationController(rootViewController: newWalletViewController)
+    navController.setNavigationBarHidden(true, animated: false)
     self.rootViewController.present(navController, animated: true)
   }
 }
