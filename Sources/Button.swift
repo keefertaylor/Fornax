@@ -1,13 +1,13 @@
 import Foundation
 import UIKit
+import MaterialComponents
 
 /** A light wrapper around UIButton for UI Customizations. */
-public class Button: UIButton {
+public class Button: MDCButton {
   public override init(frame: CGRect) {
     super.init(frame: frame)
 
-    self.setTitleColor(UIColor.black, for: .normal)
-    self.backgroundColor = UIColor.gray
+    MDCOutlinedButtonThemer.applyScheme(MDCButtonScheme(), to: self)
     self.translatesAutoresizingMaskIntoConstraints = false
   }
 
