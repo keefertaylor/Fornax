@@ -20,11 +20,7 @@ public class ConfirmWalletViewController: UIViewController {
 
     self.navigationItem.title = "Confirm Wallet"
 
-    // TODO: Use a proper icon here.
-    let closeButton = UIBarButtonItem(title: "X",
-                                      style: .plain,
-                                      target: self,
-                                      action: #selector(closeButtonPressed))
+    let closeButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeButtonPressed))
     self.navigationItem.rightBarButtonItem = closeButton
 
     let inputWalletView = InputWalletView()
