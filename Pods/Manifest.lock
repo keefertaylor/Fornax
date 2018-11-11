@@ -501,7 +501,7 @@ PODS:
     - MaterialComponents/private/Math
   - MDFInternationalization (1.1.0)
   - MDFTextAccessibility (1.2.0)
-  - MnemonicKit (1.1.0):
+  - MnemonicKit (1.2.0):
     - CryptoSwift (= 0.7.2)
   - MotionAnimator (2.8.1):
     - MotionInterchange (~> 1.6)
@@ -510,14 +510,13 @@ PODS:
   - SipHash (1.2.2)
   - Sodium (0.7.0)
   - SVProgressHUD (2.2.5)
-  - TezosKit (0.0.2):
+  - TezosKit (0.0.4):
     - BigInt (~> 3.1)
     - MnemonicKit
     - Sodium (~> 0.7.0)
 
 DEPENDENCIES:
   - MaterialComponents
-  - MnemonicKit (~> 1.1.0)
   - SVProgressHUD
   - TezosKit (~> 0.0.1)
 
@@ -543,15 +542,15 @@ SPEC CHECKSUMS:
   MaterialComponents: 0a6202cdfab416518d065eaea869efea2126b605
   MDFInternationalization: b5b8626628abf026e630e5ebaeee563037712cbb
   MDFTextAccessibility: 94098925e0853551c5a311ce7c1ecefbe297cdb6
-  MnemonicKit: 20ef05019246d0c1d6fcf97d757281446ce49761
+  MnemonicKit: 9d1d037ba51545db3c1cade164b087c32e9af659
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   MotionTransitioning: 23d25edc2f4606efb922403cbac6d81af37aa33a
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
   Sodium: c5510cc6f5e1b27858e5f260b5cac80d4a3f9379
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  TezosKit: ac8abea1416152e0e90b52aacdc9c5b85e12aaf1
+  TezosKit: 8395f292720650fc485ae8659d0c022a9394bafe
 
-PODFILE CHECKSUM: 55368ee2a5a4cb804558bfe16f3d5baefaf40cd1
+PODFILE CHECKSUM: a3542c1dcab353f57df45ed85336839c7c550f26
 
 COCOAPODS: 1.6.0.beta.2
