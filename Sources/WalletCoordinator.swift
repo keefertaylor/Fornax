@@ -1,5 +1,4 @@
 import Foundation
-import MaterialComponents
 import TezosKit
 import UIKit
 
@@ -50,10 +49,7 @@ extension WalletCoordinator: WelcomeViewControllerDelegate {
     let restoreWalletViewController = RestoreWalletViewController()
     restoreWalletViewController.delegate = self
 
-    let navController = MDCAppBarNavigationController()
-    navController.delegate = self
-    navController.pushViewController(restoreWalletViewController, animated: false)
-
+    let navController = UINavigationController(rootViewController: restoreWalletViewController)
     self.rootViewController.present(navController, animated: true)
   }
 
@@ -65,9 +61,7 @@ extension WalletCoordinator: WelcomeViewControllerDelegate {
     let newWalletViewController = NewWalletViewController(mnemonic: mnemonic)
     newWalletViewController.delegate = self
 
-    let navController = MDCAppBarNavigationController()
-    navController.delegate = self
-    navController.pushViewController(newWalletViewController, animated: false)
+    let navController = UINavigationController(rootViewController: newWalletViewController)
     self.rootViewController.present(navController, animated: true)
   }
 }
@@ -149,12 +143,5 @@ extension WalletCoordinator: ConfirmWalletViewControllerDelegate {
       return
     }
     self.pushWalletController(navigationController: navigationController, wallet: wallet)
-  }
-}
-
-extension WalletCoordinator: MDCAppBarNavigationControllerDelegate {
-  public func appBarNavigationController(_ navigationController: MDCAppBarNavigationController, willAdd appBarViewController: MDCAppBarViewController, asChildOf viewController: UIViewController) {
-    appBarViewController.headerView.backgroundColor = UIColor.blue
-    appBarViewController.headerView.minMaxHeightIncludesSafeArea = false
   }
 }
