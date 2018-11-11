@@ -16,7 +16,7 @@ public class InputWalletView: UIView {
   private let mnemonicLabel: InfoLabel
   private let passphraseLabel: InfoLabel
 
-  private let mnemonicField: TextField
+  private let mnemonicField: TextView
   private let passphraseField: TextField
 
   override open class var requiresConstraintBasedLayout: Bool {
@@ -36,7 +36,7 @@ public class InputWalletView: UIView {
 
     self.inputWalletButton = Button(frame: CGRect.zero)
 
-    self.mnemonicField = TextField(frame: CGRect.zero)
+    self.mnemonicField = TextView(frame: CGRect.zero)
 
     self.passphraseField = TextField(frame: CGRect.zero)
     self.passphraseField.isSecureTextEntry = true
@@ -48,7 +48,6 @@ public class InputWalletView: UIView {
     self.addSubview(mnemonicLabel)
     self.addSubview(passphraseLabel)
 
-    mnemonicField.placeholder = "Mnemomic"
     mnemonicField.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(mnemonicField)
 
@@ -90,7 +89,7 @@ public class InputWalletView: UIView {
     self.mnemonicLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
                                                    constant: -UIConstants.componentMargin).isActive = true
 
-    self.mnemonicField.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
+    self.mnemonicField.heightAnchor.constraint(equalToConstant: 100).isActive = true
     self.mnemonicField.topAnchor.constraint(equalTo: self.mnemonicLabel.bottomAnchor,
                                             constant: UIConstants.labelMargin).isActive = true
     self.mnemonicField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,

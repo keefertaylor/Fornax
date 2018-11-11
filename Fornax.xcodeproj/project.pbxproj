@@ -19,6 +19,7 @@
 		772E4E782198CF2C002A44A3 /* InfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E772198CF2C002A44A3 /* InfoLabel.swift */; };
 		772E4E7A2198D514002A44A3 /* HeroLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E792198D514002A44A3 /* HeroLabel.swift */; };
 		772E4E7C2198DE25002A44A3 /* FornaxLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E7B2198DE25002A44A3 /* FornaxLogo.swift */; };
+		772E4E7E2198F0AA002A44A3 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E7D2198F0AA002A44A3 /* TextView.swift */; };
 		7786030B218D1BD30036843F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786030A218D1BD30036843F /* AppDelegate.swift */; };
 		77860310218D1BD30036843F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7786030E218D1BD30036843F /* Main.storyboard */; };
 		77860312218D1BD40036843F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77860311218D1BD40036843F /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		772E4E772198CF2C002A44A3 /* InfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoLabel.swift; sourceTree = "<group>"; };
 		772E4E792198D514002A44A3 /* HeroLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroLabel.swift; sourceTree = "<group>"; };
 		772E4E7B2198DE25002A44A3 /* FornaxLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FornaxLogo.swift; sourceTree = "<group>"; };
+		772E4E7D2198F0AA002A44A3 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		77860307218D1BD30036843F /* Fornax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fornax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7786030A218D1BD30036843F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7786030F218D1BD30036843F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		77860309218D1BD30036843F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				772E4E7D2198F0AA002A44A3 /* TextView.swift */,
 				772E4E7B2198DE25002A44A3 /* FornaxLogo.swift */,
 				772E4E772198CF2C002A44A3 /* InfoLabel.swift */,
 				772E4E792198D514002A44A3 /* HeroLabel.swift */,
@@ -285,6 +288,7 @@
 				7786032A218D33E30036843F /* RestoreWalletViewController.swift in Sources */,
 				77860320218D20850036843F /* WalletCoordinator.swift in Sources */,
 				772E4E7C2198DE25002A44A3 /* FornaxLogo.swift in Sources */,
+				772E4E7E2198F0AA002A44A3 /* TextView.swift in Sources */,
 				772E4E62218FBEE6002A44A3 /* WalletView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
