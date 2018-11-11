@@ -49,20 +49,20 @@ public class WelcomeView: UIView {
   }
 
   private func applyConstraints() {
-    self.newWalletButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,
+    self.newWalletButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                   constant: UIConstants.componentMargin).isActive = true
-    self.newWalletButton.trailingAnchor.constraint(equalTo: self.trailingAnchor,
+    self.newWalletButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
                                                    constant: -UIConstants.componentMargin).isActive = true
     self.newWalletButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
     self.newWalletButton.bottomAnchor.constraint(equalTo: self.restoreWalletButton.topAnchor,
                                                  constant: -UIConstants.componentMargin).isActive = true
 
-    self.restoreWalletButton.leadingAnchor.constraint(equalTo: self.leadingAnchor,
+    self.restoreWalletButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                       constant: UIConstants.componentMargin).isActive = true
-    self.restoreWalletButton.trailingAnchor.constraint(equalTo: self.trailingAnchor,
+    self.restoreWalletButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
                                                        constant: -UIConstants.componentMargin).isActive = true
     self.restoreWalletButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
-    self.restoreWalletButton.bottomAnchor.constraint(equalTo: self.bottomAnchor,
+    self.restoreWalletButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
                                                      constant: -UIConstants.componentMargin).isActive = true
   }
 

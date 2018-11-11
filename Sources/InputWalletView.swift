@@ -68,7 +68,6 @@ public class InputWalletView: UIScrollView {
   }
 
   private func applyConstraints() {
-    // TODO: Use safe area insets here and in other classes.
     self.closeButton.sizeToFit()
     self.closeButton.widthAnchor.constraint(equalToConstant: self.closeButton.frame.size.width).isActive = true
     self.closeButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
