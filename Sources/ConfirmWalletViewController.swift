@@ -18,12 +18,15 @@ public class ConfirmWalletViewController: UIViewController {
 
     super.init(nibName: nil, bundle: nil)
 
-    self.navigationItem.title = "Confirm Wallet"
+    self.navigationItem.title = "CONFIRM WALLET"
 
     let closeButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeButtonPressed))
     self.navigationItem.rightBarButtonItem = closeButton
 
-    let inputWalletView = InputWalletView()
+    let instructions = "Re-input the details of the wallet generated in the previous step.\n\n" +
+      "Remember, if you lose either your mnemonic or your passphrase, no one can help you restore the wallet."
+
+    let inputWalletView = InputWalletView(instructions: instructions)
     inputWalletView.inputWalletDelegate = self
     self.view = inputWalletView
   }

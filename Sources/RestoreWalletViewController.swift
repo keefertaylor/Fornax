@@ -23,7 +23,9 @@ public class RestoreWalletViewController: UIViewController {
     let closeButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeButtonPressed))
     self.navigationItem.rightBarButtonItem = closeButton
 
-    let inputWalletView = InputWalletView()
+    let instructions = "Enter the details of your wallet to restore it."
+
+    let inputWalletView = InputWalletView(instructions: instructions)
     inputWalletView.inputWalletDelegate = self
     self.view = inputWalletView
   }

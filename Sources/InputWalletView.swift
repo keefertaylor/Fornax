@@ -12,6 +12,7 @@ public class InputWalletView: UIView {
 
   private let inputWalletButton: Button
 
+  private let instructionsLabel: InfoLabel
   private let mnemonicLabel: InfoLabel
   private let passphraseLabel: InfoLabel
 
@@ -22,7 +23,11 @@ public class InputWalletView: UIView {
     return true
   }
 
-  public init() {
+  public init(instructions: String) {
+    self.instructionsLabel = InfoLabel()
+    self.instructionsLabel.fontSize = 14;
+    self.instructionsLabel.text = instructions
+
     self.mnemonicLabel = InfoLabel()
     self.mnemonicLabel.text = "Mnemonic:"
 
@@ -57,6 +62,8 @@ public class InputWalletView: UIView {
                                   for: .touchUpInside)
     self.addSubview(inputWalletButton)
 
+    self.addSubview(instructionsLabel)
+
     self.applyConstraints()
   }
 
@@ -69,7 +76,14 @@ public class InputWalletView: UIView {
   }
 
   private func applyConstraints() {
-    self.mnemonicLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
+    self.instructionsLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
+                                            constant: UIConstants.componentMargin).isActive = true
+    self.instructionsLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                                                constant: UIConstants.componentMargin).isActive = true
+    self.instructionsLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                                                 constant: -UIConstants.componentMargin).isActive = true
+
+    self.mnemonicLabel.topAnchor.constraint(equalTo: self.instructionsLabel.bottomAnchor,
                                               constant: UIConstants.componentMargin).isActive = true
     self.mnemonicLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                   constant: UIConstants.componentMargin).isActive = true
