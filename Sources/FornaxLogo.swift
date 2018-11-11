@@ -20,7 +20,7 @@ public class FornaxLogo: UIView {
 
     self.boxView.clipsToBounds = true
     self.boxView.layer.borderWidth = UIConstants.borderWidth
-    self.boxView.layer.borderColor = UIConstants.tezosDarkBlue.cgColor
+    self.boxView.layer.borderColor = UIColor.tezosDarkBlue.cgColor
     self.boxView.layer.cornerRadius = UIConstants.cornerRadius
     self.boxView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -28,14 +28,14 @@ public class FornaxLogo: UIView {
     self.titleLabel.textAlignment = .center
     self.titleLabel.font = self.titleLabel.font.withSize(24)
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-    self.titleLabel.backgroundColor = UIConstants.tezosDarkBlue
-    self.titleLabel.textColor = UIConstants.accentColor
+    self.titleLabel.backgroundColor = UIColor.tezosDarkBlue
+    self.titleLabel.textColor = UIColor.accentColor
 
     self.subtitleLabel.text = "An Open Source\nWallet for Tezos"
     self.subtitleLabel.numberOfLines = 0
     self.subtitleLabel.font = self.subtitleLabel.font.withSize(14)
     self.subtitleLabel.textAlignment = .center
-    self.subtitleLabel.textColor = UIConstants.tezosDarkBlue
+    self.subtitleLabel.textColor = UIColor.tezosDarkBlue
     self.subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
 
     self.authorLabel.text = "By Keefer Taylor"

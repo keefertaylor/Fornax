@@ -5,9 +5,9 @@ public class TextView: UITextView {
   public init(frame: CGRect) {
     super.init(frame: frame, textContainer: nil)
 
-    self.textColor = UIConstants.tezosLightBlue
-    self.tintColor = UIConstants.tezosLightBlue
-    self.layer.borderColor = UIConstants.tezosLightBlue.cgColor
+    self.textColor = UIColor.tezosLightBlue
+    self.tintColor = UIColor.tezosLightBlue
+    self.layer.borderColor = UIColor.tezosLightBlue.cgColor
     self.layer.borderWidth = UIConstants.borderWidth
     self.layer.cornerRadius = UIConstants.cornerRadius
     self.font = UIFont.systemFont(ofSize: 17)

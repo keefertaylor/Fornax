@@ -28,10 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   private func setUpAppearances() {
-    UINavigationBar.appearance().barTintColor =  UIConstants.tezosDarkBlue
+    UINavigationBar.appearance().barTintColor =  UIColor.tezosDarkBlue
     UINavigationBar.appearance().barStyle =  .black
     UINavigationBar.appearance().tintColor = .white
-    UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIConstants.accentColor]
+    UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.accentColor]
     UINavigationBar.appearance().isTranslucent = false
 
     HUDManager.configure()

@@ -17,7 +17,7 @@ public class InfoLabel: UILabel {
 
     self.numberOfLines = 0
     self.font = self.font.withSize(10.0)
-    self.textColor = UIConstants.tezosDarkBlue
+    self.textColor = UIColor.tezosDarkBlue
     self.translatesAutoresizingMaskIntoConstraints = false
   }
 

@@ -3,11 +3,11 @@ import SVProgressHUD
 
 public class HUDManager {
   public static func configure() {
-    SVProgressHUD.setBorderColor(UIConstants.tezosLightBlue)
+    SVProgressHUD.setBorderColor(UIColor.tezosLightBlue)
     SVProgressHUD.setBorderWidth(UIConstants.borderWidth)
     SVProgressHUD.setCornerRadius(UIConstants.cornerRadius)
-    SVProgressHUD.setForegroundColor(UIConstants.accentColor)
-    SVProgressHUD.setBackgroundColor(UIConstants.tezosDarkBlue)
+    SVProgressHUD.setForegroundColor(UIColor.accentColor)
+    SVProgressHUD.setBackgroundColor(UIColor.tezosDarkBlue)
     SVProgressHUD.setMinimumDismissTimeInterval(2)
   }
 

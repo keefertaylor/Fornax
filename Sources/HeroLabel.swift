@@ -8,7 +8,7 @@ public class HeroLabel: UILabel {
     self.numberOfLines = 0
 
     self.font = UIFont.boldSystemFont(ofSize: 18.0)
-    self.textColor = UIConstants.tezosLightBlue
+    self.textColor = UIColor.tezosLightBlue
     self.translatesAutoresizingMaskIntoConstraints = false
   }
 

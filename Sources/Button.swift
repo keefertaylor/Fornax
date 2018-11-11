@@ -9,8 +9,8 @@ public class Button: UIButton {
 
     self.layer.cornerRadius = UIConstants.cornerRadius
 
-    self.backgroundColor = UIConstants.tezosLightBlue
-    self.setTitleColor(UIConstants.accentColor, for: .normal)
+    self.backgroundColor = UIColor.tezosLightBlue
+    self.setTitleColor(UIColor.accentColor, for: .normal)
   }
 
   public required convenience init?(coder aDecoder: NSCoder) {
