@@ -1,3 +1,5 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import UIKit
 
@@ -24,7 +26,7 @@ public class UIConstants {
 
 extension UIColor {
   // Colors for use in the app.
-  public static let tezosLightBlue = UIColor(red: 44/255, green: 125/255, blue: 247/255, alpha: 1)
-  public static let tezosDarkBlue = UIColor(red: 18/255, green: 50 / 255, blue: 98 / 255, alpha: 1)
+  public static let tezosLightBlue = UIColor(red: 44 / 255, green: 125 / 255, blue: 247 / 255, alpha: 1)
+  public static let tezosDarkBlue = UIColor(red: 18 / 255, green: 50 / 255, blue: 98 / 255, alpha: 1)
   public static let accentColor = UIColor.white
 }

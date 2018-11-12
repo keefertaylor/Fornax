@@ -1,6 +1,8 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
-import UIKit
 import TezosKit
+import UIKit
 
 public protocol RestoreWalletViewControllerDelegate: class {
   /**
@@ -30,7 +32,7 @@ public class RestoreWalletViewController: UIViewController {
     self.view = inputWalletView
   }
 
-  public required convenience init?(coder aDecoder: NSCoder) {
+  public required convenience init?(coder _: NSCoder) {
     self.init()
   }
 
@@ -40,7 +42,7 @@ public class RestoreWalletViewController: UIViewController {
 }
 
 extension RestoreWalletViewController: InputWalletViewDelegate {
-  public func inputWalletViewDidPressInputWallet(_ inputWalletView: InputWalletView,
+  public func inputWalletViewDidPressInputWallet(_: InputWalletView,
                                                  mnemonic: String,
                                                  passphrase: String) {
     guard MnemonicUtil.validate(mnemonic: mnemonic) else {

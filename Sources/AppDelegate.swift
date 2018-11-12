@@ -1,14 +1,15 @@
+// Copyright Keefer Taylor, 2018
+
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
   var window: UIWindow?
 
   var walletCoordinator: WalletCoordinator!
 
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+  func application(_: UIApplication,
+                   didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     let walletCoordinator = WalletCoordinator()
 
     let window = UIWindow(frame: UIScreen.main.bounds)
@@ -23,13 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 
-  func applicationDidEnterBackground(_ application: UIApplication) {
+  func applicationDidEnterBackground(_: UIApplication) {
     self.walletCoordinator.reset(animated: false)
   }
 
   private func setUpAppearances() {
-    UINavigationBar.appearance().barTintColor =  UIColor.tezosDarkBlue
-    UINavigationBar.appearance().barStyle =  .black
+    UINavigationBar.appearance().barTintColor = UIColor.tezosDarkBlue
+    UINavigationBar.appearance().barStyle = .black
     UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.accentColor]
     UINavigationBar.appearance().isTranslucent = false

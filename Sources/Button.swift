@@ -1,3 +1,5 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import UIKit
 
@@ -13,7 +15,7 @@ public class Button: UIButton {
     self.setTitleColor(UIColor.accentColor, for: .normal)
   }
 
-  public required convenience init?(coder aDecoder: NSCoder) {
+  public required convenience init?(coder _: NSCoder) {
     self.init(frame: CGRect.zero)
   }
 

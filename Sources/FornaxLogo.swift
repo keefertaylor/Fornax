@@ -1,3 +1,5 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import UIKit
 
@@ -53,7 +55,7 @@ public class FornaxLogo: UIView {
     self.applyContraints()
   }
 
-  public required convenience init?(coder aDecoder: NSCoder) {
+  public required convenience init?(coder _: NSCoder) {
     self.init(frame: CGRect.zero)
   }
 

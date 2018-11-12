@@ -1,3 +1,5 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import TezosKit
 import UIKit
@@ -9,7 +11,7 @@ public class WalletView: UIView {
   private let balanceLabel: InfoLabel
   private let currentBalanceLabel: HeroLabel
 
-  override open class var requiresConstraintBasedLayout: Bool {
+  open override class var requiresConstraintBasedLayout: Bool {
     return true
   }
 
@@ -39,11 +41,11 @@ public class WalletView: UIView {
     self.applyConstraints()
   }
 
-  public override convenience init(frame: CGRect) {
+  public convenience override init(frame _: CGRect) {
     self.init()
   }
 
-  public required convenience init(coder: NSCoder) {
+  public required convenience init(coder _: NSCoder) {
     self.init()
   }
 
@@ -53,11 +55,11 @@ public class WalletView: UIView {
 
   private func applyConstraints() {
     self.addressLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
-                                            constant: UIConstants.componentMargin).isActive = true
+                                           constant: UIConstants.componentMargin).isActive = true
     self.addressLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                constant: UIConstants.componentMargin).isActive = true
+                                               constant: UIConstants.componentMargin).isActive = true
     self.addressLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                 constant: -UIConstants.componentMargin).isActive = true
+                                                constant: -UIConstants.componentMargin).isActive = true
 
     self.walletAddress.topAnchor.constraint(equalTo: self.addressLabel.bottomAnchor,
                                             constant: UIConstants.labelMargin).isActive = true
@@ -79,5 +81,5 @@ public class WalletView: UIView {
                                                       constant: UIConstants.componentMargin).isActive = true
     self.currentBalanceLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
                                                        constant: -UIConstants.componentMargin).isActive = true
- }
+  }
 }

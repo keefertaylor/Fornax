@@ -1,3 +1,5 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import UIKit
 
@@ -30,7 +32,7 @@ public class NewWalletViewController: UIViewController {
   }
 
   @available(*, unavailable)
-  public required convenience init?(coder aDecoder: NSCoder) {
+  public required convenience init?(coder _: NSCoder) {
     fatalError()
   }
 
@@ -40,7 +42,7 @@ public class NewWalletViewController: UIViewController {
 }
 
 extension NewWalletViewController: NewWalletViewDelegate {
-  public func newWalletViewDidPressSubmit(_ newWalletView: NewWalletView,
+  public func newWalletViewDidPressSubmit(_: NewWalletView,
                                           passphrase: String) {
     self.delegate?.newWalletViewControllerDidRequestNewWallet(self,
                                                               mnemonic: self.mnemonic,

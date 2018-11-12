@@ -1,10 +1,12 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import UIKit
 
 public protocol InputWalletViewDelegate: class {
   func inputWalletViewDidPressInputWallet(_ inputWalletView: InputWalletView,
-                                              mnemonic: String,
-                                              passphrase: String)
+                                          mnemonic: String,
+                                          passphrase: String)
 }
 
 public class InputWalletView: UIView {
@@ -19,13 +21,13 @@ public class InputWalletView: UIView {
   private let mnemonicField: TextView
   private let passphraseField: TextField
 
-  override open class var requiresConstraintBasedLayout: Bool {
+  open override class var requiresConstraintBasedLayout: Bool {
     return true
   }
 
   public init(instructions: String) {
     self.instructionsLabel = InfoLabel()
-    self.instructionsLabel.fontSize = 14;
+    self.instructionsLabel.fontSize = 14
     self.instructionsLabel.text = instructions
 
     self.mnemonicLabel = InfoLabel()
@@ -57,8 +59,8 @@ public class InputWalletView: UIView {
 
     inputWalletButton.setTitle("Input Wallet", for: .normal)
     inputWalletButton.addTarget(self,
-                                  action: #selector(inputWalletButtonTapped),
-                                  for: .touchUpInside)
+                                action: #selector(inputWalletButtonTapped),
+                                for: .touchUpInside)
     self.addSubview(inputWalletButton)
 
     self.addSubview(instructionsLabel)
@@ -66,28 +68,28 @@ public class InputWalletView: UIView {
     self.applyConstraints()
   }
 
-  public override convenience init(frame: CGRect) {
+  public convenience override init(frame _: CGRect) {
     self.init()
   }
 
-  public required convenience init(coder: NSCoder) {
+  public required convenience init(coder _: NSCoder) {
     self.init()
   }
 
   private func applyConstraints() {
     self.instructionsLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
-                                            constant: UIConstants.componentMargin).isActive = true
-    self.instructionsLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                 constant: UIConstants.componentMargin).isActive = true
+    self.instructionsLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                                                    constant: UIConstants.componentMargin).isActive = true
     self.instructionsLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                 constant: -UIConstants.componentMargin).isActive = true
+                                                     constant: -UIConstants.componentMargin).isActive = true
 
     self.mnemonicLabel.topAnchor.constraint(equalTo: self.instructionsLabel.bottomAnchor,
-                                              constant: UIConstants.componentMargin).isActive = true
+                                            constant: UIConstants.componentMargin).isActive = true
     self.mnemonicLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                  constant: UIConstants.componentMargin).isActive = true
+                                                constant: UIConstants.componentMargin).isActive = true
     self.mnemonicLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                   constant: -UIConstants.componentMargin).isActive = true
+                                                 constant: -UIConstants.componentMargin).isActive = true
 
     self.mnemonicField.heightAnchor.constraint(equalToConstant: 100).isActive = true
     self.mnemonicField.topAnchor.constraint(equalTo: self.mnemonicLabel.bottomAnchor,
@@ -108,24 +110,24 @@ public class InputWalletView: UIView {
     self.passphraseField.topAnchor.constraint(equalTo: self.passphraseLabel.bottomAnchor,
                                               constant: UIConstants.labelMargin).isActive = true
     self.passphraseField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                constant: UIConstants.componentMargin).isActive = true
+                                                  constant: UIConstants.componentMargin).isActive = true
     self.passphraseField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                 constant: -UIConstants.componentMargin).isActive = true
+                                                   constant: -UIConstants.componentMargin).isActive = true
 
     self.inputWalletButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                      constant: UIConstants.componentMargin).isActive = true
+                                                    constant: UIConstants.componentMargin).isActive = true
     self.inputWalletButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                       constant: -UIConstants.componentMargin).isActive = true
+                                                     constant: -UIConstants.componentMargin).isActive = true
     self.inputWalletButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
     self.inputWalletButton.topAnchor.constraint(equalTo: self.passphraseField.bottomAnchor,
-                                                  constant: UIConstants.componentMargin).isActive = true
+                                                constant: UIConstants.componentMargin).isActive = true
   }
 
   @objc private func inputWalletButtonTapped() {
     let mnemonic = self.mnemonicField.text ?? ""
     let passphrase = self.passphraseField.text ?? ""
     self.inputWalletDelegate?.inputWalletViewDidPressInputWallet(self,
-                                                                       mnemonic: mnemonic,
-                                                                       passphrase: passphrase)
+                                                                 mnemonic: mnemonic,
+                                                                 passphrase: passphrase)
   }
 }

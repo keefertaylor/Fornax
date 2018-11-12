@@ -1,8 +1,9 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import UIKit
 
 public class InfoLabel: UILabel {
-
   public var fontSize: CGFloat {
     set {
       self.font = self.font.withSize(newValue)
@@ -21,7 +22,7 @@ public class InfoLabel: UILabel {
     self.translatesAutoresizingMaskIntoConstraints = false
   }
 
-  public required convenience init?(coder aDecoder: NSCoder) {
+  public required convenience init?(coder _: NSCoder) {
     self.init(frame: CGRect.zero)
   }
 }

@@ -1,3 +1,5 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import UIKit
 
@@ -13,7 +15,7 @@ public class WelcomeView: UIView {
 
   private let fornaxLogo: FornaxLogo
 
-  override open class var requiresConstraintBasedLayout: Bool {
+  open override class var requiresConstraintBasedLayout: Bool {
     return true
   }
 
@@ -41,11 +43,11 @@ public class WelcomeView: UIView {
     self.applyConstraints()
   }
 
-  public override convenience init(frame: CGRect) {
+  public convenience override init(frame _: CGRect) {
     self.init()
   }
 
-  public required convenience init(coder: NSCoder) {
+  public required convenience init(coder _: NSCoder) {
     self.init()
   }
 

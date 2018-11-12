@@ -1,6 +1,8 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
-import UIKit
 import MnemonicKit
+import UIKit
 
 public protocol NewWalletViewDelegate: class {
   func newWalletViewDidPressSubmit(_ newWalletView: NewWalletView,
@@ -20,7 +22,7 @@ public class NewWalletView: UIView {
 
   private let submitButton: Button
 
-  override open class var requiresConstraintBasedLayout: Bool {
+  open override class var requiresConstraintBasedLayout: Bool {
     return true
   }
 
@@ -69,11 +71,11 @@ public class NewWalletView: UIView {
     self.applyConstraints()
   }
 
-  public override convenience init(frame: CGRect) {
+  public convenience override init(frame _: CGRect) {
     self.init()
   }
 
-  public required convenience init(coder: NSCoder) {
+  public required convenience init(coder _: NSCoder) {
     self.init()
   }
 
@@ -87,7 +89,7 @@ public class NewWalletView: UIView {
 
   private func applyConstraints() {
     self.instructionsLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
-                                            constant: UIConstants.componentMargin).isActive = true
+                                                constant: UIConstants.componentMargin).isActive = true
     self.instructionsLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                                     constant: UIConstants.componentMargin).isActive = true
     self.instructionsLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
@@ -104,13 +106,12 @@ public class NewWalletView: UIView {
                                             constant: UIConstants.labelMargin).isActive = true
     self.mnemonicLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
 
-
     self.passphraseLabel.topAnchor.constraint(equalTo: self.mnemonicLabel.bottomAnchor,
-                                                constant: UIConstants.componentMargin).isActive = true
+                                              constant: UIConstants.componentMargin).isActive = true
     self.passphraseLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                    constant: UIConstants.componentMargin).isActive = true
+                                                  constant: UIConstants.componentMargin).isActive = true
     self.passphraseLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                     constant: -UIConstants.componentMargin).isActive = true
+                                                   constant: -UIConstants.componentMargin).isActive = true
 
     self.passphraseField.topAnchor.constraint(equalTo: self.passphraseLabel.bottomAnchor,
                                               constant: UIConstants.labelMargin).isActive = true

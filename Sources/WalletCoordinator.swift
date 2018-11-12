@@ -1,3 +1,5 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import TezosKit
 import UIKit
@@ -6,7 +8,6 @@ import UIKit
  * A mediator class which will coordinate interactions between Fornax services and view controllers.
  */
 public class WalletCoordinator: NSObject {
-
   /** The root controller at the base of the hierarchy. */
   public let rootViewController: WelcomeViewController
 
@@ -45,7 +46,7 @@ public class WalletCoordinator: NSObject {
 }
 
 extension WalletCoordinator: WelcomeViewControllerDelegate {
-  public func welcomeViewControllerDidRequestRestoreWallet(_ welcomeViewController: WelcomeViewController) {
+  public func welcomeViewControllerDidRequestRestoreWallet(_: WelcomeViewController) {
     let restoreWalletViewController = RestoreWalletViewController()
     restoreWalletViewController.delegate = self
 
@@ -53,7 +54,7 @@ extension WalletCoordinator: WelcomeViewControllerDelegate {
     self.rootViewController.present(navController, animated: true)
   }
 
-  public func welcomeViewControllerDidRequestNewWallet(_ welcomeViewController: WelcomeViewController) {
+  public func welcomeViewControllerDidRequestNewWallet(_: WelcomeViewController) {
     guard let mnemonic = MnemonicUtil.generateMnemonic() else {
       HUDManager.showErrorAndDismiss("Unknown Error\nPlease try again?")
       return
@@ -84,9 +85,9 @@ extension WalletCoordinator: RestoreWalletViewControllerDelegate {
       self.activeWallet = Wallet(mnemonic: mnemonic, passphrase: passphrase)
       DispatchQueue.main.async {
         guard let activeWallet = self.activeWallet,
-              let navController = restoreWalletViewController.navigationController else {
-                HUDManager.showErrorAndDismiss("Something went wrong.")
-                return
+          let navController = restoreWalletViewController.navigationController else {
+          HUDManager.showErrorAndDismiss("Something went wrong.")
+          return
         }
         HUDManager.dismiss()
 
@@ -98,7 +99,7 @@ extension WalletCoordinator: RestoreWalletViewControllerDelegate {
 
 extension WalletCoordinator: WalletViewControllerDelegate {
   public func walletViewControllerDidPressLock(_ walletViewController: WalletViewController) {
-    self.activeWallet = nil;
+    self.activeWallet = nil
     walletViewController.dismiss(animated: true)
 
     HUDManager.showInfoAndDismiss("Securely removed wallet.")
@@ -124,8 +125,8 @@ extension WalletCoordinator: NewWalletViewControllerDelegate {
       DispatchQueue.main.async {
         guard let wallet = wallet,
           let navController = newWalletViewController.navigationController else {
-            HUDManager.showErrorAndDismiss("Something went wrong.")
-            return
+          HUDManager.showErrorAndDismiss("Something went wrong.")
+          return
         }
         HUDManager.dismiss()
 

@@ -1,6 +1,8 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
-import UIKit
 import TezosKit
+import UIKit
 
 public protocol WalletViewControllerDelegate: class {
   func walletViewControllerDidPressLock(_ walletViewController: WalletViewController)
@@ -38,7 +40,7 @@ public class WalletViewController: UIViewController {
   }
 
   @available(*, unavailable)
-  public required convenience init?(coder aDecoder: NSCoder) {
+  public required convenience init?(coder _: NSCoder) {
     fatalError()
   }
 
@@ -48,11 +50,11 @@ public class WalletViewController: UIViewController {
       guard let self = self else {
         return
       }
-      
+
       guard let balance = balance,
         error == nil else {
-          HUDManager.showErrorAndDismiss("Error fetching balance")
-          return
+        HUDManager.showErrorAndDismiss("Error fetching balance")
+        return
       }
 
       HUDManager.dismiss()

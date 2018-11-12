@@ -1,10 +1,11 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import UIKit
 
 public protocol WelcomeViewControllerDelegate: class {
   func welcomeViewControllerDidRequestRestoreWallet(_ welcomeViewController: WelcomeViewController)
   func welcomeViewControllerDidRequestNewWallet(_ welcomeViewController: WelcomeViewController)
-
 }
 
 public class WelcomeViewController: UIViewController {
@@ -18,17 +19,17 @@ public class WelcomeViewController: UIViewController {
     self.view = welcomeView
   }
 
-  public required convenience init?(coder aDecoder: NSCoder) {
+  public required convenience init?(coder _: NSCoder) {
     self.init()
   }
 }
 
 extension WelcomeViewController: WelcomeViewDelegate {
-  public func welcomeViewDidPressRestoreWallet(_ welcomeView: WelcomeView) {
+  public func welcomeViewDidPressRestoreWallet(_: WelcomeView) {
     self.delegate?.welcomeViewControllerDidRequestRestoreWallet(self)
   }
 
-  public func welcomeViewDidPressNewWallet(_ welcomeView: WelcomeView) {
+  public func welcomeViewDidPressNewWallet(_: WelcomeView) {
     self.delegate?.welcomeViewControllerDidRequestNewWallet(self)
   }
 }

@@ -1,3 +1,5 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import UIKit
 
@@ -18,7 +20,7 @@ public class TextView: UITextView {
                                            right: UIConstants.cornerRadius)
   }
 
-  public required convenience init?(coder aDecoder: NSCoder) {
+  public required convenience init?(coder _: NSCoder) {
     self.init(frame: CGRect.zero)
   }
 }

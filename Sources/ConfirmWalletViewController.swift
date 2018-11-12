@@ -1,3 +1,5 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import TezosKit
 import UIKit
@@ -32,7 +34,7 @@ public class ConfirmWalletViewController: UIViewController {
   }
 
   @available(*, unavailable)
-  public required convenience init?(coder aDecoder: NSCoder) {
+  public required convenience init?(coder _: NSCoder) {
     fatalError()
   }
 
@@ -42,17 +44,17 @@ public class ConfirmWalletViewController: UIViewController {
 }
 
 extension ConfirmWalletViewController: InputWalletViewDelegate {
-  public func inputWalletViewDidPressInputWallet(_ inputWalletView: InputWalletView,
+  public func inputWalletViewDidPressInputWallet(_: InputWalletView,
                                                  mnemonic: String,
                                                  passphrase: String) {
     // Confirm the wallet is actually matching before making delegate callback.
     HUDManager.show()
     DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-      guard let self = self else  {
+      guard let self = self else {
         HUDManager.dismiss()
         return
       }
-      
+
       guard let wallet = Wallet(mnemonic: mnemonic, passphrase: passphrase) else {
         HUDManager.showErrorAndDismiss("Something went wrong\nTry again?")
         return
