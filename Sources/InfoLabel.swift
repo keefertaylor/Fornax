@@ -22,7 +22,8 @@ public class InfoLabel: UILabel {
     self.translatesAutoresizingMaskIntoConstraints = false
   }
 
+  @available(*, unavailable)
   public required convenience init?(coder _: NSCoder) {
-    self.init(frame: CGRect.zero)
+    fatalError()
   }
 }

@@ -71,12 +71,14 @@ public class NewWalletView: UIView {
     self.applyConstraints()
   }
 
+  @available(*, unavailable)
   public convenience override init(frame _: CGRect) {
-    self.init()
+    fatalError()
   }
 
-  public required convenience init(coder _: NSCoder) {
-    self.init()
+  @available(*, unavailable)
+  public required convenience init?(coder _: NSCoder) {
+    fatalError()
   }
 
   public override func layoutSubviews() {

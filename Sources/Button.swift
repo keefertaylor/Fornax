@@ -15,8 +15,9 @@ public class Button: UIButton {
     self.setTitleColor(UIColor.accentColor, for: .normal)
   }
 
+  @available(*, unavailable)
   public required convenience init?(coder _: NSCoder) {
-    self.init(frame: CGRect.zero)
+    fatalError()
   }
 
   public override func setTitle(_ title: String?, for state: UIControl.State) {

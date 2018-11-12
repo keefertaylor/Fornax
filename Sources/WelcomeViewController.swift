@@ -14,13 +14,14 @@ public class WelcomeViewController: UIViewController {
   public init() {
     super.init(nibName: nil, bundle: nil)
 
-    let welcomeView = WelcomeView()
+    let welcomeView = WelcomeView(frame: CGRect.zero)
     welcomeView.delegate = self
     self.view = welcomeView
   }
 
+  @available(*, unavailable)
   public required convenience init?(coder _: NSCoder) {
-    self.init()
+    fatalError()
   }
 }
 

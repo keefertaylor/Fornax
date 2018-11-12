@@ -32,8 +32,9 @@ public class RestoreWalletViewController: UIViewController {
     self.view = inputWalletView
   }
 
+  @available(*, unavailable)
   public required convenience init?(coder _: NSCoder) {
-    self.init()
+    fatalError()
   }
 
   @objc public func closeButtonPressed() {

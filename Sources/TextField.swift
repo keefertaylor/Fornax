@@ -14,8 +14,9 @@ public class TextField: UITextField {
     self.layer.cornerRadius = UIConstants.cornerRadius
   }
 
+  @available(*, unavailable)
   public required convenience init?(coder _: NSCoder) {
-    self.init(frame: CGRect.zero)
+    fatalError()
   }
 
   public override func textRect(forBounds bounds: CGRect) -> CGRect {

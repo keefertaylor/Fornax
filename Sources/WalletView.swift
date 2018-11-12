@@ -41,12 +41,14 @@ public class WalletView: UIView {
     self.applyConstraints()
   }
 
-  public convenience override init(frame _: CGRect) {
-    self.init()
+  @available(*, unavailable)
+  public required convenience override init(frame _: CGRect) {
+    fatalError()
   }
 
-  public required convenience init(coder _: NSCoder) {
-    self.init()
+  @available(*, unavailable)
+  public required convenience init?(coder _: NSCoder) {
+    fatalError()
   }
 
   public func updateBalance(balance: TezosBalance) {

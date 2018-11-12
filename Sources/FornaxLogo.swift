@@ -55,8 +55,9 @@ public class FornaxLogo: UIView {
     self.applyContraints()
   }
 
+  @available(*, unavailable)
   public required convenience init?(coder _: NSCoder) {
-    self.init(frame: CGRect.zero)
+    fatalError()
   }
 
   private func applyContraints() {

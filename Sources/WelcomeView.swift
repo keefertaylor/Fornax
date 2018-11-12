@@ -19,7 +19,7 @@ public class WelcomeView: UIView {
     return true
   }
 
-  public init() {
+  public override init(frame _: CGRect) {
     self.restoreWalletButton = Button(frame: CGRect.zero)
     self.newWalletButton = Button(frame: CGRect.zero)
     self.fornaxLogo = FornaxLogo()
@@ -43,12 +43,9 @@ public class WelcomeView: UIView {
     self.applyConstraints()
   }
 
-  public convenience override init(frame _: CGRect) {
-    self.init()
-  }
-
-  public required convenience init(coder _: NSCoder) {
-    self.init()
+  @available(*, unavailable)
+  public required convenience init?(coder _: NSCoder) {
+    fatalError()
   }
 
   private func applyConstraints() {
