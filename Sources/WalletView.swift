@@ -48,7 +48,7 @@ public class WalletView: UIView {
   }
 
   public func updateBalance(balance: TezosBalance) {
-    self.currentBalanceLabel.text = balance.humanReadableRepresentation + "XTZ"
+    self.currentBalanceLabel.text = balance.humanReadableRepresentation + " XTZ"
   }
 
   private func applyConstraints() {
