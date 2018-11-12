@@ -4,6 +4,6 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'Fornax' do
-  pod 'TezosKit'
+  pod 'TezosKit', '~> 0.0.5'
   pod 'SVProgressHUD'
 end
