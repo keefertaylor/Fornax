@@ -44,11 +44,12 @@ extension SendViewController: SendViewDelegate {
   public func sendViewDidPressSend(_ sendView: SendView, amount: TezosBalance, address: String) {
     // TODO: Add a confirm view and prompt user to affirm their choices.
     HUDManager.show()
-    self.tezosClient.send(amount: amount, to: address, from: self.wallet.address, keys: self.wallet.keys) { [weak self] txHash, error  in
+    self.tezosClient.send(amount: amount, to: address, from: self.wallet.address, keys: self.wallet.keys) { [weak self] maybeTXHash, error  in
       guard let self = self,
-            let txHash = txHash,
+            let txHash = maybeTXHash,
             error == nil else {
         HUDManager.showErrorAndDismiss("Something went wrong\nTry again?")
+              print("FYI, error was \(String(describing: error)) and txHash was \(String(describing: maybeTXHash))")
         return
       }
       print("FYI, TxHash was: \(txHash). See: https://tzscan.io/\(txHash)")
