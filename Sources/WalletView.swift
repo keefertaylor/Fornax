@@ -103,6 +103,7 @@ public class WalletView: UIView {
                                                       constant: UIConstants.componentMargin).isActive = true
     self.sendButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
                                                        constant: -UIConstants.componentMargin).isActive = true
+    self.sendButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
   }
 
   @objc private func sendButtonPressed() {
