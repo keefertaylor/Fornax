@@ -9,8 +9,14 @@ Fornax is a Tezos Wallet for iOS based on [TezosKit](https://github.com/keeferta
 
 ![Screenshot](fornax.gif)
 
-Currently, Fornax supports logging in and checking your balance, with more functionality coming soon.
+Supported Functionality:
+* Wallet Creation / Restoration
+* Sending Tezos
 
+Features to Be Implemented:
+* Delegation
+* Origination
+ 
 # Installation
 Fornax is developed with CocoaPods. To build the project:
 
