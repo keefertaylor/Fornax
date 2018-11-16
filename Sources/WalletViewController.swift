@@ -20,9 +20,11 @@ public class WalletViewController: UIViewController {
     self.wallet = wallet
     self.tezosClient = tezosClient
 
-    self.walletView = WalletView(address: wallet.address)
+    self.walletView = WalletView(address: self.wallet.address)
 
     super.init(nibName: nil, bundle: nil)
+
+    self.walletView.delegate = self
 
     self.navigationItem.title = "WALLET"
     self.navigationItem.hidesBackButton = true
@@ -75,5 +77,23 @@ public class WalletViewController: UIViewController {
 
   @objc private func refreshPressed() {
     self.updateBalance()
+  }
+}
+
+extension WalletViewController: WalletViewDelegate {
+  public func walletViewDidPressSend(_: WalletView) {
+    let sendViewController = SendViewController(tezosClient: self.tezosClient, wallet: self.wallet)
+    sendViewController.delegate = self
+
+    let navController = UINavigationController(rootViewController: sendViewController)
+    self.present(navController, animated: true)
+  }
+}
+
+extension WalletViewController: SendViewControllerDelegate {
+  public func sendViewControllerDidRequestClose(_ sendViewController: SendViewController) {
+    DispatchQueue.main.async {
+      sendViewController.dismiss(animated: true)
+    }
   }
 }
