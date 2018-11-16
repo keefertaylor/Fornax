@@ -4,12 +4,20 @@ import Foundation
 import TezosKit
 import UIKit
 
+public protocol WalletViewDelegate: class {
+  func walletViewDidPressSend(_ walletView: WalletView)
+}
+
 public class WalletView: UIView {
+  public weak var delegate: WalletViewDelegate?
+
   private let addressLabel: InfoLabel
   private let walletAddress: HeroLabel
 
   private let balanceLabel: InfoLabel
   private let currentBalanceLabel: HeroLabel
+
+  private let sendButton: Button
 
   open override class var requiresConstraintBasedLayout: Bool {
     return true
@@ -20,10 +28,15 @@ public class WalletView: UIView {
     self.walletAddress = HeroLabel()
     self.balanceLabel = InfoLabel()
     self.currentBalanceLabel = HeroLabel()
+    self.sendButton = Button()
 
     super.init(frame: CGRect.zero)
 
     self.backgroundColor = UIColor.white
+
+    self.sendButton.setTitle("SEND", for: .normal)
+    self.sendButton.addTarget(self, action: #selector(sendButtonPressed), for: .touchUpInside)
+    self.addSubview(self.sendButton)
 
     self.addressLabel.text = "Address:"
     self.addSubview(self.addressLabel)
@@ -83,5 +96,16 @@ public class WalletView: UIView {
                                                       constant: UIConstants.componentMargin).isActive = true
     self.currentBalanceLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
                                                        constant: -UIConstants.componentMargin).isActive = true
+
+    self.sendButton.topAnchor.constraint(equalTo: self.currentBalanceLabel.bottomAnchor,
+                                                  constant: UIConstants.componentMargin).isActive = true
+    self.sendButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                                                      constant: UIConstants.componentMargin).isActive = true
+    self.sendButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                                                       constant: -UIConstants.componentMargin).isActive = true
+  }
+
+  @objc private func sendButtonPressed() {
+    self.delegate?.walletViewDidPressSend(self)
   }
 }

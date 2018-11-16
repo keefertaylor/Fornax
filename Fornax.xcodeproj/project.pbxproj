@@ -20,6 +20,8 @@
 		772E4E7A2198D514002A44A3 /* HeroLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E792198D514002A44A3 /* HeroLabel.swift */; };
 		772E4E7C2198DE25002A44A3 /* FornaxLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E7B2198DE25002A44A3 /* FornaxLogo.swift */; };
 		772E4E7E2198F0AA002A44A3 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E7D2198F0AA002A44A3 /* TextView.swift */; };
+		772E4E84219F5F99002A44A3 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E83219F5F99002A44A3 /* SendViewController.swift */; };
+		772E4E86219F5FE2002A44A3 /* SendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772E4E85219F5FE2002A44A3 /* SendView.swift */; };
 		7786030B218D1BD30036843F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7786030A218D1BD30036843F /* AppDelegate.swift */; };
 		77860310218D1BD30036843F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7786030E218D1BD30036843F /* Main.storyboard */; };
 		77860312218D1BD40036843F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77860311218D1BD40036843F /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		772E4E792198D514002A44A3 /* HeroLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroLabel.swift; sourceTree = "<group>"; };
 		772E4E7B2198DE25002A44A3 /* FornaxLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FornaxLogo.swift; sourceTree = "<group>"; };
 		772E4E7D2198F0AA002A44A3 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		772E4E83219F5F99002A44A3 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
+		772E4E85219F5FE2002A44A3 /* SendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendView.swift; sourceTree = "<group>"; };
 		77860307218D1BD30036843F /* Fornax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fornax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7786030A218D1BD30036843F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7786030F218D1BD30036843F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 				772E4E692190CFC5002A44A3 /* ConfirmWalletViewController.swift */,
 				772E4E712197B40F002A44A3 /* TextField.swift */,
 				772E4E732197B7ED002A44A3 /* UIConstants.swift */,
+				772E4E85219F5FE2002A44A3 /* SendView.swift */,
+				772E4E83219F5F99002A44A3 /* SendViewController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -276,9 +282,11 @@
 				77860328218D31F10036843F /* InputWalletView.swift in Sources */,
 				772E4E742197B7ED002A44A3 /* UIConstants.swift in Sources */,
 				772E4E68218FD6B4002A44A3 /* NewWalletViewController.swift in Sources */,
+				772E4E86219F5FE2002A44A3 /* SendView.swift in Sources */,
 				77860326218D2CE10036843F /* WelcomeViewController.swift in Sources */,
 				772E4E7A2198D514002A44A3 /* HeroLabel.swift in Sources */,
 				772E4E782198CF2C002A44A3 /* InfoLabel.swift in Sources */,
+				772E4E84219F5F99002A44A3 /* SendViewController.swift in Sources */,
 				772E4E722197B40F002A44A3 /* TextField.swift in Sources */,
 				772E4E66218FCF2A002A44A3 /* NewWalletView.swift in Sources */,
 				772E4E6A2190CFC5002A44A3 /* ConfirmWalletViewController.swift in Sources */,
