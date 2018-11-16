@@ -117,11 +117,11 @@ public class SendView: UIView {
     }
 
     guard let amountText = self.amountInput.text,
-      let amount = TezosBalance(balance: amountText) else {
+      let amountDecimal = Double(amountText) else {
         HUDManager.showErrorAndDismiss("Please enter a valid amount")
         return
     }
-
+    let amount = TezosBalance(balance: amountDecimal)
     self.delegate?.sendViewDidPressSend(self, amount: amount, address: address)
   }
 }
