@@ -81,7 +81,7 @@ public class WalletViewController: UIViewController {
 }
 
 extension WalletViewController: WalletViewDelegate {
-  public func walletViewDidPressSend(_ walletView: WalletView) {
+  public func walletViewDidPressSend(_: WalletView) {
     let sendViewController = SendViewController(tezosClient: self.tezosClient, wallet: self.wallet)
     sendViewController.delegate = self
 
@@ -93,7 +93,7 @@ extension WalletViewController: WalletViewDelegate {
 extension WalletViewController: SendViewControllerDelegate {
   public func sendViewControllerDidRequestClose(_ sendViewController: SendViewController) {
     DispatchQueue.main.async {
-      sendViewController.dismiss(animated: true);
+      sendViewController.dismiss(animated: true)
     }
   }
 }

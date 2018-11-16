@@ -1,3 +1,5 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import TezosKit
 import UIKit
@@ -19,7 +21,7 @@ public class SendView: UIView {
   private let amountLabel: InfoLabel
   private let amountInput: TextField
 
-  private let sendButton: Button;
+  private let sendButton: Button
 
   public init() {
     self.addressLabel = InfoLabel()
@@ -72,41 +74,41 @@ public class SendView: UIView {
 
   private func applyConstraints() {
     self.addressLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor,
-                                                constant: UIConstants.componentMargin).isActive = true
+                                           constant: UIConstants.componentMargin).isActive = true
     self.addressLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                    constant: UIConstants.componentMargin).isActive = true
+                                               constant: UIConstants.componentMargin).isActive = true
     self.addressLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                     constant: -UIConstants.componentMargin).isActive = true
+                                                constant: -UIConstants.componentMargin).isActive = true
 
     self.addressInput.topAnchor.constraint(equalTo: self.addressLabel.bottomAnchor,
-                                            constant: UIConstants.labelMargin).isActive = true
+                                           constant: UIConstants.labelMargin).isActive = true
     self.addressInput.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                constant: UIConstants.componentMargin).isActive = true
+                                               constant: UIConstants.componentMargin).isActive = true
     self.addressInput.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                 constant: -UIConstants.componentMargin).isActive = true
+                                                constant: -UIConstants.componentMargin).isActive = true
     self.addressInput.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
 
     self.amountLabel.topAnchor.constraint(equalTo: self.addressInput.bottomAnchor,
-                                           constant: UIConstants.componentMargin).isActive = true
+                                          constant: UIConstants.componentMargin).isActive = true
     self.amountLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                               constant: UIConstants.componentMargin).isActive = true
+                                              constant: UIConstants.componentMargin).isActive = true
     self.amountLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                constant: -UIConstants.componentMargin).isActive = true
+                                               constant: -UIConstants.componentMargin).isActive = true
 
     self.amountInput.topAnchor.constraint(equalTo: self.amountLabel.bottomAnchor,
                                           constant: UIConstants.labelMargin).isActive = true
     self.amountInput.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                               constant: UIConstants.componentMargin).isActive = true
+                                              constant: UIConstants.componentMargin).isActive = true
     self.amountInput.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                constant: -UIConstants.componentMargin).isActive = true
+                                               constant: -UIConstants.componentMargin).isActive = true
     self.amountInput.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
 
     self.sendButton.topAnchor.constraint(equalTo: self.amountInput.bottomAnchor,
-                                           constant: UIConstants.componentMargin).isActive = true
+                                         constant: UIConstants.componentMargin).isActive = true
     self.sendButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                               constant: UIConstants.componentMargin).isActive = true
+                                             constant: UIConstants.componentMargin).isActive = true
     self.sendButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                constant: -UIConstants.componentMargin).isActive = true
+                                              constant: -UIConstants.componentMargin).isActive = true
     self.sendButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
   }
 
@@ -118,8 +120,8 @@ public class SendView: UIView {
 
     guard let amountText = self.amountInput.text,
       let amountDecimal = Double(amountText) else {
-        HUDManager.showErrorAndDismiss("Please enter a valid amount")
-        return
+      HUDManager.showErrorAndDismiss("Please enter a valid amount")
+      return
     }
     let amount = TezosBalance(balance: amountDecimal)
     self.delegate?.sendViewDidPressSend(self, amount: amount, address: address)

@@ -98,11 +98,11 @@ public class WalletView: UIView {
                                                        constant: -UIConstants.componentMargin).isActive = true
 
     self.sendButton.topAnchor.constraint(equalTo: self.currentBalanceLabel.bottomAnchor,
-                                                  constant: UIConstants.componentMargin).isActive = true
+                                         constant: UIConstants.componentMargin).isActive = true
     self.sendButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
-                                                      constant: UIConstants.componentMargin).isActive = true
+                                             constant: UIConstants.componentMargin).isActive = true
     self.sendButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                       constant: -UIConstants.componentMargin).isActive = true
+                                              constant: -UIConstants.componentMargin).isActive = true
     self.sendButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
   }
 
