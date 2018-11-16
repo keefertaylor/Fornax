@@ -7,6 +7,8 @@ public protocol SendViewDelegate: class {
 }
 
 public class SendView: UIView {
+  public weak var delegate: SendViewDelegate?
+
   open override class var requiresConstraintBasedLayout: Bool {
     return true
   }
@@ -109,6 +111,17 @@ public class SendView: UIView {
   }
 
   @objc private func sendButtonPressed() {
-    // TODO: Implement.
+    guard let address = self.addressInput.text else {
+      HUDManager.showErrorAndDismiss("Enter an address")
+      return
+    }
+
+    guard let amountText = self.amountInput.text,
+      let amount = TezosBalance(balance: amountText) else {
+        HUDManager.showErrorAndDismiss("Please enter a valid amount")
+        return
+    }
+
+    self.delegate?.sendViewDidPressSend(self, amount: amount, address: address)
   }
 }

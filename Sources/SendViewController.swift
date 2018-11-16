@@ -1,4 +1,5 @@
 import Foundation
+import TezosKit
 import UIKit
 
 public protocol SendViewControllerDelegate: class {
@@ -15,6 +16,8 @@ public class SendViewController: UIViewController {
 
     super.init(nibName: nil, bundle: nil)
 
+    sendView.delegate = self
+
     self.navigationItem.title = "SEND"
 
     let closeButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeButtonPressed))
@@ -30,5 +33,11 @@ public class SendViewController: UIViewController {
 
   @objc private func closeButtonPressed() {
     self.delegate?.sendViewControllerDidRequestClose(self)
+  }
+}
+
+extension SendViewController: SendViewDelegate {
+  public func sendViewDidPressSend(_ sendView: SendView, amount: TezosBalance, address: String) {
+    // TODO: Implement.
   }
 }
