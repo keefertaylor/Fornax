@@ -1,7 +1,15 @@
 import Foundation
 import UIKit
 
+public protocol ConfirmViewDelegate: class {
+  func confirmViewDidPressConfirm(_ confirmView: ConfirmView)
+  func confirmViewDidPressCancel(_ confirmView: ConfirmView)
+}
+
+
 public class ConfirmView: UIView {
+  public weak var delegate: ConfirmViewDelegate?
+
   private let affirmativeActionButton: Button
   private let negativeActionButton: Button
   private let infoText: InfoLabel
@@ -68,8 +76,10 @@ public class ConfirmView: UIView {
   }
 
   @objc private func affirmativeActionButtonPressed() {
+    self.delegate?.confirmViewDidPressConfirm(self)
   }
 
   @objc private func negativeActionButtonPressed() {
+    self.delegate?.confirmViewDidPressCancel(self)
   }
 }
