@@ -17,6 +17,9 @@ public class WalletView: UIView {
   private let balanceLabel: InfoLabel
   private let currentBalanceLabel: HeroLabel
 
+  private let delegateLabel: InfoLabel
+  private let currentDelegateLabel: HeroLabel
+
   private let sendButton: Button
 
   open override class var requiresConstraintBasedLayout: Bool {
@@ -28,6 +31,8 @@ public class WalletView: UIView {
     self.walletAddress = HeroLabel()
     self.balanceLabel = InfoLabel()
     self.currentBalanceLabel = HeroLabel()
+    self.delegateLabel = InfoLabel()
+    self.currentDelegateLabel = HeroLabel()
     self.sendButton = Button()
 
     super.init(frame: CGRect.zero)
@@ -50,6 +55,11 @@ public class WalletView: UIView {
     self.addSubview(self.balanceLabel)
 
     self.addSubview(self.currentBalanceLabel)
+
+    self.delegateLabel.text = "Delegate:"
+    self.addSubview(self.delegateLabel)
+
+    self.addSubview(self.currentDelegateLabel)
 
     self.applyConstraints()
   }
@@ -97,7 +107,21 @@ public class WalletView: UIView {
     self.currentBalanceLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
                                                        constant: -UIConstants.componentMargin).isActive = true
 
-    self.sendButton.topAnchor.constraint(equalTo: self.currentBalanceLabel.bottomAnchor,
+    self.delegateLabel.topAnchor.constraint(equalTo: self.currentBalanceLabel.bottomAnchor,
+                                           constant: UIConstants.componentMargin).isActive = true
+    self.delegateLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                                               constant: UIConstants.componentMargin).isActive = true
+    self.delegateLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                                                constant: -UIConstants.componentMargin).isActive = true
+
+    self.currentDelegateLabel.topAnchor.constraint(equalTo: self.delegateLabel.bottomAnchor,
+                                                  constant: UIConstants.labelMargin).isActive = true
+    self.currentDelegateLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
+                                                      constant: UIConstants.componentMargin).isActive = true
+    self.currentDelegateLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
+                                                       constant: -UIConstants.componentMargin).isActive = true
+
+    self.sendButton.topAnchor.constraint(equalTo: self.currentDelegateLabel.bottomAnchor,
                                          constant: UIConstants.componentMargin).isActive = true
     self.sendButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                              constant: UIConstants.componentMargin).isActive = true
