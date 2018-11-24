@@ -36,27 +36,21 @@ public class SendView: UIView {
 
     self.backgroundColor = .white
 
-    // TODO: I think I can remove autoresizing masks
     self.addressLabel.text = "Destination Address"
-    self.addressLabel.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(self.addressLabel)
 
     self.addressInput.placeholder = "Destination Address"
-    self.addressInput.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(self.addressInput)
 
     self.amountLabel.text = "Amount"
-    self.amountLabel.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(self.amountLabel)
 
     self.amountInput.placeholder = "Amount"
     self.amountInput.keyboardType = .decimalPad
-    self.amountInput.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(self.amountInput)
 
     self.sendButton.setTitle("SEND", for: .normal)
     self.sendButton.addTarget(self, action: #selector(sendButtonPressed), for: .touchUpInside)
-    self.sendButton.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(self.sendButton)
 
     self.applyConstraints()

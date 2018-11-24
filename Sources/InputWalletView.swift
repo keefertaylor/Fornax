@@ -50,11 +50,9 @@ public class InputWalletView: UIView {
     self.addSubview(mnemonicLabel)
     self.addSubview(passphraseLabel)
 
-    mnemonicField.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(mnemonicField)
 
     passphraseField.placeholder = "Optional Passphrase"
-    passphraseField.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(passphraseField)
 
     inputWalletButton.setTitle("Input Wallet", for: .normal)
