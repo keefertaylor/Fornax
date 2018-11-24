@@ -1,7 +1,14 @@
 import Foundation
 import UIKit
 
+public protocol ConfirmViewControllerDelegate: class {
+  func confirmViewControllerDidConfirm(_ confirmViewController: ConfirmViewController)
+  func confirmViewControllerDidCancel(_ confirmViewController: ConfirmViewController)
+}
+
 public class ConfirmViewController: UIViewController {
+  public weak var delegate: ConfirmViewControllerDelegate?
+
   private let confirmView: ConfirmView
 
   public init() {
@@ -22,10 +29,10 @@ public class ConfirmViewController: UIViewController {
 
 extension ConfirmViewController: ConfirmViewDelegate {
   public func confirmViewDidPressConfirm(_ confirmView: ConfirmView) {
-    // TODO: Implement.
+    self.delegate?.confirmViewControllerDidConfirm(self)
   }
 
   public func confirmViewDidPressCancel(_ confirmView: ConfirmView) {
-    // TODO: Implement.
+    self.delegate?.confirmViewControllerDidCancel(self)
   }
 }
