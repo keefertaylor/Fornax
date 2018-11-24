@@ -1,3 +1,5 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import UIKit
 
@@ -31,15 +33,15 @@ public class ConfirmViewController: UIViewController {
   }
 
   @available(*, unavailable)
-  public required init?(coder aDecoder: NSCoder) { fatalError() }
+  public required init?(coder _: NSCoder) { fatalError() }
 }
 
 extension ConfirmViewController: ConfirmViewDelegate {
-  public func confirmViewDidPressConfirm(_ confirmView: ConfirmView) {
+  public func confirmViewDidPressConfirm(_: ConfirmView) {
     self.confirmAction()
   }
 
-  public func confirmViewDidPressCancel(_ confirmView: ConfirmView) {
+  public func confirmViewDidPressCancel(_: ConfirmView) {
     self.cancelAction()
   }
 }

@@ -1,3 +1,5 @@
+// Copyright Keefer Taylor, 2018
+
 import Foundation
 import UIKit
 
@@ -5,7 +7,6 @@ public protocol ConfirmViewDelegate: class {
   func confirmViewDidPressConfirm(_ confirmView: ConfirmView)
   func confirmViewDidPressCancel(_ confirmView: ConfirmView)
 }
-
 
 public class ConfirmView: UIView {
   public weak var delegate: ConfirmViewDelegate?
@@ -52,7 +53,7 @@ public class ConfirmView: UIView {
   }
 
   private func applyConstraints() {
-    self.infoText.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: UIConstants.componentMargin).isActive = true;
+    self.infoText.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: UIConstants.componentMargin).isActive = true
     self.infoText.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,
                                            constant: UIConstants.componentMargin).isActive = true
     self.infoText.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
@@ -69,9 +70,9 @@ public class ConfirmView: UIView {
     self.negativeActionButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor,
                                                       constant: -UIConstants.componentMargin).isActive = true
     self.negativeActionButton.leadingAnchor.constraint(equalTo: self.affirmativeActionButton.trailingAnchor,
-                                                          constant: UIConstants.componentMargin).isActive = true
+                                                       constant: UIConstants.componentMargin).isActive = true
     self.negativeActionButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,
-                                                           constant: -UIConstants.componentMargin).isActive = true
+                                                        constant: -UIConstants.componentMargin).isActive = true
     self.negativeActionButton.heightAnchor.constraint(equalToConstant: UIConstants.componentHeight).isActive = true
   }
 

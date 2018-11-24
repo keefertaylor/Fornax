@@ -47,9 +47,9 @@ public class SendViewController: UIViewController {
       guard let self = self,
         let txHash = maybeTXHash,
         error == nil else {
-          HUDManager.showErrorAndDismiss("Something went wrong\nTry again?")
-          print("FYI, error was \(String(describing: error)) and txHash was \(String(describing: maybeTXHash))")
-          return
+        HUDManager.showErrorAndDismiss("Something went wrong\nTry again?")
+        print("FYI, error was \(String(describing: error)) and txHash was \(String(describing: maybeTXHash))")
+        return
       }
       print("FYI, TxHash was: \(txHash). See: https://tzscan.io/\(txHash)")
 
