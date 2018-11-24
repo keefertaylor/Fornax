@@ -11,8 +11,8 @@ public class ConfirmViewController: UIViewController {
 
   private let confirmView: ConfirmView
 
-  public init() {
-    self.confirmView = ConfirmView(text: "Placeholder text")
+  public init(text: String) {
+    self.confirmView = ConfirmView(text: text)
 
     super.init(nibName: nil, bundle: nil)
 
