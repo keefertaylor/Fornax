@@ -67,7 +67,7 @@ extension SendViewController: SendViewDelegate {
     }
 
     let confirmViewControllerText =
-      "You are about to send \(amount.humanReadableRepresentation) XTZ to \(address).\n\nThis transaction is irreversible."
+      "You are about to send \(amount.humanReadableRepresentation) XTZ to \(address). This transaction is irreversible.\n\nAre you sure you want to proceed?"
 
     let confirmAction: () -> Void = { [weak self] in
       guard let self = self else {
