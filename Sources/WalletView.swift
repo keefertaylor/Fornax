@@ -74,6 +74,10 @@ public class WalletView: UIView {
     fatalError()
   }
 
+  public func updateDelegate(delegate: String) {
+    self.currentDelegateLabel.text = delegate
+  }
+
   public func updateBalance(balance: TezosBalance) {
     self.currentBalanceLabel.text = balance.humanReadableRepresentation + " XTZ"
   }
