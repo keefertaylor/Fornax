@@ -38,7 +38,7 @@ public class WalletViewController: UIViewController {
 
     self.view = walletView
 
-    self.updateBalance()
+    self.update()
   }
 
   @available(*, unavailable)
@@ -46,23 +46,34 @@ public class WalletViewController: UIViewController {
     fatalError()
   }
 
-  private func updateBalance() {
-    HUDManager.show()
-    self.tezosClient.getBalance(wallet: self.wallet) { [weak self] balance, error in
-      guard let self = self else {
-        return
-      }
+  private func update() {
+    let updateDispatchGroup = DispatchGroup()
 
+    var maybeNewBalance: TezosBalance? = nil
+
+    HUDManager.show()
+    updateDispatchGroup.enter()
+    self.tezosClient.getBalance(wallet: self.wallet) { balance, error in
       guard let balance = balance,
         error == nil else {
-        HUDManager.showErrorAndDismiss("Error fetching balance")
-        return
+          updateDispatchGroup.leave()
+          return
       }
 
+      maybeNewBalance = balance
+      updateDispatchGroup.leave()
+    }
+
+    updateDispatchGroup.wait()
+
+    guard let newBalance = maybeNewBalance else {
+      HUDManager.showErrorAndDismiss("Error fetching balance")
+      return
+    }
+
+    DispatchQueue.main.async {
+      self.walletView.updateBalance(balance: newBalance)
       HUDManager.dismiss()
-      DispatchQueue.main.async {
-        self.walletView.updateBalance(balance: balance)
-      }
     }
   }
 
@@ -76,7 +87,7 @@ public class WalletViewController: UIViewController {
   }
 
   @objc private func refreshPressed() {
-    self.updateBalance()
+    self.update()
   }
 }
 
