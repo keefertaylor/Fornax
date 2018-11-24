@@ -40,24 +40,53 @@ public class SendViewController: UIViewController {
   @objc private func closeButtonPressed() {
     self.delegate?.sendViewControllerDidRequestClose(self)
   }
-}
 
-extension SendViewController: SendViewDelegate {
-  public func sendViewDidPressSend(_: SendView, amount: TezosBalance, address: String) {
-    // TODO: Add a confirm view and prompt user to affirm their choices.
+  private func send(amount: TezosBalance, to address: String) {
     HUDManager.show()
     self.tezosClient.send(amount: amount, to: address, from: self.wallet.address, keys: self.wallet.keys) { [weak self] maybeTXHash, error in
       guard let self = self,
         let txHash = maybeTXHash,
         error == nil else {
-        HUDManager.showErrorAndDismiss("Something went wrong\nTry again?")
-        print("FYI, error was \(String(describing: error)) and txHash was \(String(describing: maybeTXHash))")
-        return
+          HUDManager.showErrorAndDismiss("Something went wrong\nTry again?")
+          print("FYI, error was \(String(describing: error)) and txHash was \(String(describing: maybeTXHash))")
+          return
       }
       print("FYI, TxHash was: \(txHash). See: https://tzscan.io/\(txHash)")
 
       HUDManager.showInfoAndDismiss("Transaction Successful.\nPlease wait a few minutes for the change to be reflected on the chain.")
       self.delegate?.sendViewControllerDidRequestClose(self)
     }
+  }
+}
+
+extension SendViewController: SendViewDelegate {
+  public func sendViewDidPressSend(_: SendView, amount: TezosBalance, address: String) {
+    guard let navigationController = self.navigationController else {
+      print("SendViewController should be inside a navigation VC.")
+      return
+    }
+
+    let confirmViewControllerText =
+      "You are about to send \(amount.humanReadableRepresentation) XTZ to \(address).\n\nThis transaction is irreversible."
+
+    let confirmAction: () -> Void = { [weak self] in
+      guard let self = self else {
+        return
+      }
+
+      self.send(amount: amount, to: address)
+    }
+
+    let cancelAction: () -> Void = { [weak self] in
+      guard let self = self else {
+        return
+      }
+      navigationController.popToViewController(self, animated: true)
+    }
+
+    let confirmViewController = ConfirmViewController(text: confirmViewControllerText,
+                                                      confirmAction: confirmAction,
+                                                      cancelAction: cancelAction)
+    navigationController.pushViewController(confirmViewController, animated: true)
   }
 }
