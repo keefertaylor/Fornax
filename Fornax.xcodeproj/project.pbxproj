@@ -87,6 +87,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		772E4E8B21A97ECA002A44A3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				772E4E732197B7ED002A44A3 /* UIConstants.swift */,
+				772E4E712197B40F002A44A3 /* TextField.swift */,
+				7786032B218D36330036843F /* Button.swift */,
+				772E4E792198D514002A44A3 /* HeroLabel.swift */,
+				772E4E772198CF2C002A44A3 /* InfoLabel.swift */,
+				772E4E7B2198DE25002A44A3 /* FornaxLogo.swift */,
+				772E4E7D2198F0AA002A44A3 /* TextView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		778602FE218D1BD30036843F = {
 			isa = PBXGroup;
 			children = (
@@ -108,10 +122,7 @@
 		77860309218D1BD30036843F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				772E4E7D2198F0AA002A44A3 /* TextView.swift */,
-				772E4E7B2198DE25002A44A3 /* FornaxLogo.swift */,
-				772E4E772198CF2C002A44A3 /* InfoLabel.swift */,
-				772E4E792198D514002A44A3 /* HeroLabel.swift */,
+				772E4E8B21A97ECA002A44A3 /* Common */,
 				772E4E752197C2D3002A44A3 /* HUDManager.swift */,
 				772E4E67218FD6B4002A44A3 /* NewWalletViewController.swift */,
 				772E4E65218FCF2A002A44A3 /* NewWalletView.swift */,
@@ -125,12 +136,9 @@
 				77860316218D1BD40036843F /* Info.plist */,
 				77860327218D31F10036843F /* InputWalletView.swift */,
 				77860329218D33E30036843F /* RestoreWalletViewController.swift */,
-				7786032B218D36330036843F /* Button.swift */,
 				772E4E63218FC245002A44A3 /* WalletViewController.swift */,
 				772E4E61218FBEE6002A44A3 /* WalletView.swift */,
 				772E4E692190CFC5002A44A3 /* ConfirmWalletViewController.swift */,
-				772E4E712197B40F002A44A3 /* TextField.swift */,
-				772E4E732197B7ED002A44A3 /* UIConstants.swift */,
 				772E4E85219F5FE2002A44A3 /* SendView.swift */,
 				772E4E83219F5F99002A44A3 /* SendViewController.swift */,
 			);
