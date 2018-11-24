@@ -7,6 +7,8 @@ public class TextView: UITextView {
   public init(frame: CGRect) {
     super.init(frame: frame, textContainer: nil)
 
+    self.translatesAutoresizingMaskIntoConstraints = false;
+
     self.textColor = UIColor.tezosLightBlue
     self.tintColor = UIColor.tezosLightBlue
     self.layer.borderColor = UIColor.tezosLightBlue.cgColor

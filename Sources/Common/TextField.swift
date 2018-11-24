@@ -7,6 +7,8 @@ public class TextField: UITextField {
   public override init(frame: CGRect) {
     super.init(frame: frame)
 
+    self.translatesAutoresizingMaskIntoConstraints = false;
+
     self.textColor = UIColor.tezosLightBlue
     self.tintColor = UIColor.tezosLightBlue
     self.layer.borderColor = UIColor.tezosLightBlue.cgColor

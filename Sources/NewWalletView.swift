@@ -54,13 +54,11 @@ public class NewWalletView: UIView {
     self.addSubview(passphraseLabel)
 
     mnemonicLabel.text = mnemonic.uppercased()
-    mnemonicLabel.translatesAutoresizingMaskIntoConstraints = false
     mnemonicLabel.numberOfLines = 0
     mnemonicLabel.textAlignment = .center
     self.addSubview(mnemonicLabel)
 
     passphraseField.placeholder = "Passphrase"
-    passphraseField.translatesAutoresizingMaskIntoConstraints = false
     passphraseField.isSecureTextEntry = true
     self.addSubview(passphraseField)
 
