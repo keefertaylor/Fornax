@@ -3,14 +3,7 @@
 import Foundation
 import UIKit
 
-public protocol ConfirmViewControllerDelegate: class {
-  func confirmViewControllerDidConfirm(_ confirmViewController: ConfirmViewController)
-  func confirmViewControllerDidCancel(_ confirmViewController: ConfirmViewController)
-}
-
 public class ConfirmViewController: UIViewController {
-  public weak var delegate: ConfirmViewControllerDelegate?
-
   private let confirmView: ConfirmView
 
   private let confirmAction: () -> Void
